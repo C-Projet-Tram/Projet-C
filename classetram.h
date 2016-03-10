@@ -4,7 +4,7 @@
 class tram {
 	// Private section
 	public:
-		// Public Declarations
+		// Public Declarations c'est joli
 		tram();//initialisation
 		tram(bool direction,int ligne,int vitesse);//initialisation avec variables
 		bool tramDevant(int ligne,bool direction);//vérifie s'il y a un tram devant, renvoie bool si vrai et int si faux kek
