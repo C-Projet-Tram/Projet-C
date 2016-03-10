@@ -1,5 +1,5 @@
-#ifndef "classetram.h"
-#define "classetram.h"
+#ifndef "classetram_h"
+#define "classetram_h"
 
 class tram {
 	// Private section
@@ -14,7 +14,7 @@ class tram {
 		bool d_direction;
 		int d_lignedetram;
 		int d_vitesse;
-		int d_instance;
+		static int d_instance;
 };
 
 

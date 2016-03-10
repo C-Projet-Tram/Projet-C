@@ -1,5 +1,5 @@
-#ifndef "listechaine.h"
-#define "listechaine.h"
+#ifndef "listechaine_h"
+#define "listechaine_h"
 
 class liste {
 	// Private section
