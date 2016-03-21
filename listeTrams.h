@@ -8,6 +8,8 @@ class ListeTrams
 		ListeTrams();
 		void ajoutTram(Tram T);
 		void enleverTram(Tram T);
+		ListeTrams operator+=(Tram T);
+		ListeTrams operator+=(ListeTrams T);
 	private:
 		Tram d_tram;
 		ListeTrams *d_suivant;
