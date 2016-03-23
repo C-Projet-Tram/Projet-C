@@ -29,8 +29,8 @@ Tram Tram::operator=(Tram T)
 bool Tram::operator==(Tram T)
 {
 	if (this==&T) return true;
-	if (d_direction=T.d_direction)
-		if (d_marche=T.d_marche)
+	if (d_direction==T.d_direction)
+		if (d_marche==T.d_marche)
 			return true;
 	return false;
 }
