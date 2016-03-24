@@ -8,8 +8,10 @@ Tram::Tram(bool direction,int ligne,bool marche):d_direction(direction),d_marche
 
 void Tram::enMarche()
 {
-	if (d_marche=0) d_marche=1;
-	else d_marche=0;
+	if (d_marche==0) 
+		d_marche=1;
+	else
+		 d_marche=0;
 }
 
 bool Tram::tramDevant(int ligne,bool direction)
