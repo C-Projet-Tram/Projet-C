@@ -12,9 +12,9 @@ CursorRow=8
 TopLine=1
 LeftChar=1
 [Editor_4]
-CursorCol=15
+CursorCol=1
 <<<<<<< HEAD
-CursorRow=11
+CursorRow=3
 TopLine=1
 =======
 CursorRow=44
@@ -22,8 +22,8 @@ TopLine=4
 >>>>>>> origin/master
 LeftChar=1
 [Editor_3]
-CursorCol=27
-CursorRow=13
+CursorCol=9
+CursorRow=21
 TopLine=1
 LeftChar=1
 [Editor_2]
@@ -32,13 +32,13 @@ CursorRow=3
 TopLine=1
 LeftChar=1
 [Editor_5]
-CursorCol=35
-CursorRow=12
+CursorCol=1
+CursorRow=3
 TopLine=1
 LeftChar=1
 [Editor_6]
-CursorCol=23
-CursorRow=41
+CursorCol=1
+CursorRow=1
 TopLine=1
 LeftChar=1
 [Editor_7]
