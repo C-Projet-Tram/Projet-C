@@ -1,8 +1,10 @@
 #include <iostream>
 #include "tinyxml.h"
+#include "listeTrams.h"
 
 using namespace std;
-/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+//Définition des variables
+ListeTrams ldt;
 
 void loadTramList()
 {
@@ -20,7 +22,6 @@ void loadTramList()
 	TiXmlElement *elem = hdl.FirstChildElement().FirstChildElement().Element();
 	
 	//Création des trams grâce aux données XML
-	//Tram tr; Ici ?
 	if(!elem){
 		cout << "root doesn't exist'" << endl;
 	}
@@ -37,11 +38,9 @@ void loadTramList()
 		elem->QueryBoolAttribute("marche", &marche);
 					
 		
-		//Assignation des données au tram
-		//Tram tr; Ou là ?
-		
-		//Ajout à la liste chainée
-		
+		//Ajout à la liste chainée de trams
+		ldt.ajouter(num,direction,marche);
+
 		//Iteration 
 		elem = elem->NextSiblingElement(); 
 	}

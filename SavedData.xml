@@ -1,5 +1,5 @@
 <listeTrams>
-    <Tram num="1" name="Blblbl" />
-    <Tram num="2" name="Ckckck" />
-    <Tram num="3" name="Gngngn" />
+    <Tram num="1" direction="1" marche="0"/>
+    <Tram num="2" direction="0" marche="0"/>
+    <Tram num="3" direction="1" marche="0"/>
 </listeTrams>
