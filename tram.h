@@ -16,7 +16,6 @@ class Tram
 		Tram():d_num(0),d_direction(0),d_marche(0),suiv(0){}
 		Tram(int num,bool direction,bool marche):d_num(num),d_direction(direction),d_marche(marche),suiv(0){}
 		
-		//Need ya help, genre listeTrams a pas accès aux infos private de cette classe, pourtant c'est friend .. Maybe le header idk
 		int d_num;
 		bool d_direction;
 		bool d_marche;

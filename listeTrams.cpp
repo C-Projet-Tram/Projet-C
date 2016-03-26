@@ -25,6 +25,7 @@ int ListeTrams::taille() const
 	return taille;
 }
 
+//Méthode qui ajoute un tram à la liste chainée dans l'ordre croissant de son num
 void ListeTrams::ajouter(int num,bool direction,bool marche) 
 {
 	//Cas chaînon vide

@@ -4,11 +4,12 @@
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = main.o ligne.o tram.o listeTrams.o station.o listeStations.o
-LINKOBJ  = main.o ligne.o tram.o listeTrams.o station.o listeStations.o
-LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
-INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
-CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+RES      = ProjetTram_private.res
+OBJ      = main.o ligne.o tram.o listeTrams.o station.o listeStations.o tinystr.o tinyxml.o tinyxmlerror.o tinyxmlparser.o $(RES)
+LINKOBJ  = main.o ligne.o tram.o listeTrams.o station.o listeStations.o tinystr.o tinyxml.o tinyxmlerror.o tinyxmlparser.o $(RES)
+LIBS     = -L"D:/Programmes/Dev-Cpp/MinGW64/lib" -L"D:/Programmes/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"D:/Programmes/Dev-Cpp/MinGW64/include" -I"D:/Programmes/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Programmes/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"D:/Programmes/Dev-Cpp/MinGW64/include" -I"D:/Programmes/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Programmes/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"D:/Programmes/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
 BIN      = ProjetTram.exe
 CXXFLAGS = $(CXXINCS) 
 CFLAGS   = $(INCS) 
@@ -41,3 +42,19 @@ station.o: station.cpp
 
 listeStations.o: listeStations.cpp
 	$(CPP) -c listeStations.cpp -o listeStations.o $(CXXFLAGS)
+
+tinystr.o: tinystr.cpp
+	$(CPP) -c tinystr.cpp -o tinystr.o $(CXXFLAGS)
+
+tinyxml.o: tinyxml.cpp
+	$(CPP) -c tinyxml.cpp -o tinyxml.o $(CXXFLAGS)
+
+tinyxmlerror.o: tinyxmlerror.cpp
+	$(CPP) -c tinyxmlerror.cpp -o tinyxmlerror.o $(CXXFLAGS)
+
+tinyxmlparser.o: tinyxmlparser.cpp
+	$(CPP) -c tinyxmlparser.cpp -o tinyxmlparser.o $(CXXFLAGS)
+
+ProjetTram_private.res: ProjetTram_private.rc 
+	$(WINDRES) -i ProjetTram_private.rc --input-format=rc -o ProjetTram_private.res -O coff 
+

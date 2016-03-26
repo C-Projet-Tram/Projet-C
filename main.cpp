@@ -4,18 +4,16 @@
 #include "station.h"
 #include "listeStations.h"
 #include "listeTrams.h"
-
-using namespace std;
-
 #include "tinyxml.h"
-#include "listeTrams.h"
 
 using namespace std;
+
 //Définition des variables
 ListeTrams ldt;
 
 void loadTramList()
 {
+	
 	//Ouverture du fichier
 	TiXmlDocument doc("SavedData.xml");
 	//Si erreur lors de l'ouverture du document
@@ -25,6 +23,7 @@ void loadTramList()
 	    cout << "error #" << doc.ErrorId() << " : " << doc.ErrorDesc() << endl;
 	}
 	
+
 	//On pointe sur la liste des trams
 	TiXmlHandle hdl(&doc);
 	TiXmlElement *elem = hdl.FirstChildElement().FirstChildElement().Element();
@@ -37,14 +36,17 @@ void loadTramList()
 	while (elem){
 		
 		//Assignation des données XML à des variables
-		int num;
+		int num,dData,mData;
 		bool direction;
 		bool marche;
 		
 		elem->QueryIntAttribute("num", &num);
-		elem->QueryBoolAttribute("direction", &direction);
-		elem->QueryBoolAttribute("marche", &marche);
-					
+		elem->QueryIntAttribute("direction", &dData);
+		elem->QueryIntAttribute("marche", &mData);
+		
+		//Conversion des valeurs int en boolean			
+		direction = dData;
+		marche = mData;
 		
 		//Ajout à la liste chainée de trams
 		ldt.ajouter(num,direction,marche);
@@ -52,7 +54,7 @@ void loadTramList()
 		//Iteration 
 		elem = elem->NextSiblingElement(); 
 	}
-	
+
 }
 
 void showTramList()
@@ -68,7 +70,7 @@ void showTramList()
 			tempsActuel=time(0);
 			deltaT=tempsActuel-tempsIteration;
 			
-}
+	}
 	//A FAIRE
 }
 
@@ -81,9 +83,9 @@ int main()
 	{
 		cout << "----------------------------" << endl;
 		cout << "\t Menu" << endl;
-		cout << " Please make your choice : " << endl;
-		cout << "\t1 - Load Tram list" << endl;
-		cout << "\t2 - Quit" << endl;
+		cout << " Faites votre choix : " << endl;
+		cout << "\t1 - Lancer la simulation" << endl;
+		cout << "\t2 - Quitter" << endl;
 		cout << "----------------------------" << endl;
 		
 		cout << "Choice : "; cin >> choice;
