@@ -5,9 +5,9 @@ CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
 RES      = ProjetTram_private.res
-OBJ      = main.o ligne.o tram.o listeTrams.o station.o listeStations.o tinystr.o tinyxml.o tinyxmlerror.o tinyxmlparser.o $(RES)
-LINKOBJ  = main.o ligne.o tram.o listeTrams.o station.o listeStations.o tinystr.o tinyxml.o tinyxmlerror.o tinyxmlparser.o $(RES)
-LIBS     = -L"D:/Programmes/Dev-Cpp/MinGW64/lib" -L"D:/Programmes/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+OBJ      = main.o ligne.o tram.o listeTrams.o station.o listeStations.o tinystr.o tinyxml.o tinyxmlerror.o tinyxmlparser.o winbgi.o $(RES)
+LINKOBJ  = main.o ligne.o tram.o listeTrams.o station.o listeStations.o tinystr.o tinyxml.o tinyxmlerror.o tinyxmlparser.o winbgi.o $(RES)
+LIBS     = -L"D:/Programmes/Dev-Cpp/MinGW64/lib" -L"D:/Programmes/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -lgdi32
 INCS     = -I"D:/Programmes/Dev-Cpp/MinGW64/include" -I"D:/Programmes/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Programmes/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"D:/Programmes/Dev-Cpp/MinGW64/include" -I"D:/Programmes/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Programmes/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"D:/Programmes/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
 BIN      = ProjetTram.exe
@@ -54,6 +54,9 @@ tinyxmlerror.o: tinyxmlerror.cpp
 
 tinyxmlparser.o: tinyxmlparser.cpp
 	$(CPP) -c tinyxmlparser.cpp -o tinyxmlparser.o $(CXXFLAGS)
+
+winbgi.o: winbgi.cpp
+	$(CPP) -c winbgi.cpp -o winbgi.o $(CXXFLAGS)
 
 ProjetTram_private.res: ProjetTram_private.rc 
 	$(WINDRES) -i ProjetTram_private.rc --input-format=rc -o ProjetTram_private.res -O coff 

@@ -11,7 +11,7 @@ ResourceIncludes=
 MakeIncludes=
 Compiler=
 CppCompiler=
-Linker=
+Linker=-lgdi32_@@_
 IsCpp=1
 Icon=ProjetTram.ico
 ExeOutput=
@@ -29,7 +29,7 @@ IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=0
 CompilerSettings=0000000000000000000000000
-UnitCount=17
+UnitCount=19
 
 [VersionInfo]
 Major=1
@@ -212,6 +212,26 @@ BuildCmd=
 
 [Unit17]
 FileName=tinyxmlparser.cpp
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit18]
+FileName=graphics.h
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit19]
+FileName=winbgi.cpp
 CompileCpp=1
 Folder=
 Compile=1

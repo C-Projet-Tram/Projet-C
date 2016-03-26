@@ -5,6 +5,7 @@
 #include "listeStations.h"
 #include "listeTrams.h"
 #include "tinyxml.h"
+#include "graphics.h"
 
 using namespace std;
 
@@ -57,13 +58,29 @@ void loadTramList()
 
 }
 
-void showTramList()
+void affichageSimulation()
+{
+	//A REMPLIR
+	int x=800,y=500,dir=0,lon=1,coul=RED;
+	
+	opengraphsize(1650,1000);
+	setcolor(coul);
+
+	//moveto(x,y);
+	//lineto(x,y);
+	
+	getch();
+	closegraph();	
+}
+
+void configSimulation()
 {
 	long tempsDepart=time(0),tempsActuel=tempsDepart,tempsIteration=tempsDepart,deltaT;
 	int duree;
 	cout<<"Indiquez une durée (en seconde):"<<endl;
 	cin>>duree;
 	duree*=1000;
+	affichageSimulation();//Juste pour test
 	while(tempsActuel-tempsDepart<duree)
 	{
 			tempsIteration=tempsActuel;
@@ -73,6 +90,8 @@ void showTramList()
 	}
 	//A FAIRE
 }
+
+
 
 int main()
 {
@@ -95,7 +114,8 @@ int main()
 		
 			case 1:
 				loadTramList();
-				showTramList();
+				configSimulation();
+								
 				system("pause");
 				system("cls");
 			break;

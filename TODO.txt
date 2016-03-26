@@ -1,0 +1,17 @@
+DEFINITION DES CLASSES
+	-Bien commencé, tram et listeTrams OK
+	-Il faut faire les autres classes (pour les autres listes c'est pareil que pour le tram)
+LOAD
+	-Ajout de la bibliothèque -> OK (Tinyxml)
+	-Load des trams -> fonctionnel
+
+AFFICHAGE
+	-Ajout de la bibliothèque -> OK (Graphics, WinBGI)
+	-Paramétrage du projet -> OK (dans paramètres de linker ajout de la ligne -lgdi32)
+	-Début commencé, à continuer (pour le moment juste ouverture de la fenêtre graphique en mode YOLO)
+
+BOUCLE PRINCIPALE
+	-Commencée
+
+DEPLACEMENTS
+	-Rien de fait, en attente du reste
