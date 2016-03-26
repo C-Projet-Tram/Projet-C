@@ -6,14 +6,17 @@ class ListeTrams
 {
 	public:
 		ListeTrams();
-		void ajoutTram(Tram T);
+		~ListeTrams();
+		int taille() const;
+		void ajouter(int num,bool direction,bool marche);
+		/*
 		void enleverTram(Tram T);
 		ListeTrams operator+=(Tram T);
 		ListeTrams operator+=(ListeTrams T);
+		*/
 	private:
-		Tram d_tram;
-		ListeTrams *d_suivant;
-		int nbDeTrams;
+		Tram *t;
+
 };
 
 #endif

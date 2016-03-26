@@ -1,15 +1,11 @@
 #include "tram.h"
 
-Tram::Tram():d_direction(0),d_marche(0)
-{}
-
-Tram::Tram(bool direction,int ligne,bool marche):d_direction(direction),d_marche(marche)
-{}
-
 void Tram::enMarche()
 {
-	if (d_marche=0) d_marche=1;
-	else d_marche=0;
+	if (d_marche==0) 
+		d_marche=1;
+	else
+		 d_marche=0;
 }
 
 bool Tram::tramDevant(int ligne,bool direction)
@@ -18,6 +14,7 @@ bool Tram::tramDevant(int ligne,bool direction)
 	//Ok maggle
 }
 
+/*
 Tram Tram::operator=(Tram T)
 {
 	if (this==&T) return T;
@@ -44,5 +41,5 @@ bool Tram::operator!=(Tram T)
 	return false;
 }
 
-
+*/
 
