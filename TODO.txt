@@ -15,3 +15,34 @@ BOUCLE PRINCIPALE
 
 DEPLACEMENTS
 	-Rien de fait, en attente du reste
+
+
+
+-----------------------------------------
+Idée, désolé je dois mettre les trucs à plat pour bien savoir quoi faire
+et je suis toujours aussi épave, j'ai toujours pas bosser un poil le projet, je me dégoute car je vous laisse tout seul dessus.
+
+Donc :
+
+
+Station = posX, posY, (nom = osef ? pour moi oui)
+
+Ligne(listeStations) = liste chainée de station ? 1er/dernier = terminus.
+
+Tram = appartient à 1 ligne et se situe entre 2 stations. avec ratio entre 0 et 1 pour calc à partir pos station sa coord
+(nouvelle variable du tram = ligne, 2 station (stationDepart, stationArrive) et ratio)
+
+Je me demandais, la var ligne est peut être pas utile si on fait une liste tram par ligne, faut réfléchir à l'utilité de cette variable.
+
+il faut voir comment utiliser le bool pour savoir vers quel station il va. donc en fonction du bool soit on se rapproche de la station en 0 ou la station en 1. Dites moi si je suis pas clair ou si je dis de la merde.
+
+
+
+Les trams ne peuvent se croiser seulement sur les stations donc si personne = go sinon attend. et si on fait une liste de tram par ligne, et que l'on met dans l'ordre, on ne doit que regarder devant soi dans la liste chainée et sur station quand on y arrive pour savoir si on rentre dans quelqu'un. Dans le cas ou c'est le dernier tram de la liste(pas de suivant), on regarde le 1er tram de cette même liste.
+
+
+Si vous me validez ça, je commencerai à le coder. Je suis dans le tram donc rien à faire donc je fais ça oui, comme je l'ai dis au début je suis une épave.
+
+
+Et du coup pour le graphique, une fois qu'on a le ration + position des 2 stations entre les quelles il est, on calcule sa pos et on l'affiche.
+pour tracer le plan des lignes simple, on prend les lignes 1 par 1 et on fait des trait entre chaque station.
