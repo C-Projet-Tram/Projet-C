@@ -17,7 +17,9 @@ class Tram
 		Tram(int num,bool direction,bool marche):d_num(num),d_direction(direction),d_marche(marche),suiv(0){}
 		
 		int d_num;
-		double d;
+		int d_vitesse;
+		int distanceMinimum;
+		double distance;
 		Station S1,S2;
 		bool d_direction;
 		bool d_marche;
