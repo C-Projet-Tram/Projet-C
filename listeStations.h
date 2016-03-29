@@ -6,6 +6,7 @@ class ListeStations
 	public:
 		ListeStations();
 	private:
+		vector < Station > d_liste;
 };
 
 #endif
