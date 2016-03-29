@@ -1,13 +1,19 @@
 #ifndef LIGNE_H
 #define LIGNE_H
-#include "listeStations.h"
+#include "station.h"
+#include <vector>
+
+using namespace std;
 
 class Ligne
 {
 	public:
 		Ligne();
+		Station stationSuivante(const Station &S) const;
+		Station stationPrecedente(const Station &S) const;
+		bool operator==(const Ligne &L) const;
 	private:
-		ListeStations d_listeStation;
+		vector <Station> d_liste;
 };
 
 #endif

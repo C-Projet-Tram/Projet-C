@@ -2,7 +2,7 @@
 #include <ctime>
 #include "tram.h"
 #include "station.h"
-#include "listeStations.h"
+#include "Ligne.h"
 #include "listeTrams.h"
 #include "tinyxml.h"
 #include "graphics.h"
@@ -129,7 +129,7 @@ void affichageSimulation()
 
 void configSimulation()
 {
-	ListeTrams &t;//need changer les params de base
+	ListeTrams *lt;//need changer les params de base
 	long tempsDepart=time(0),tempsActuel=tempsDepart,tempsIteration=tempsDepart;
 	double duree,deltaT;
 	cout<<"Indiquez une durée (en seconde):"<<endl;
@@ -140,15 +140,14 @@ void configSimulation()
 			tempsIteration=tempsActuel;
 			tempsActuel=time(0);
 			deltaT=difftime(tempsActuel,tempsIteration);
-			while(t)
+			ListeTrams *tmp=new ListeTrams(lt);
+			while(tmp)
 			{
 				//changer la distance des trams et vérifier s'il y a quelqu'un devant
+				tmp->tram().verifDistanceMinimale(tmp->tram().suivant());
+				tmp->tram().tramAvance(deltaT);
 			}
-			
-			
 	}
-	cout<<"pouet"<<endl;
-	
 }
 
 

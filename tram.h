@@ -11,6 +11,7 @@ class Tram
 		void enMarche();
 		void verifDistanceMinimale(const Tram &T2);
 		void tramAvance(double secondes);
+		Tram suivant();
 		/*
 		Tram operator=(Tram T);
 		bool operator==(Tram T);
@@ -18,8 +19,8 @@ class Tram
 		*/
 	private:
 		Tram():d_num(0),d_vitesse(30),distanceMinimum(75),distance(0),d_direction(1),d_marche(0),suiv(0){}
-		Tram(int num,int vitesse,int dMini,int s1,int s2,bool direction,bool marche):
-		d_num(num),d_vitesse(vitesse),distanceMinimum(dMini),distance(0),d_direction(direction),d_marche(marche),suiv(0){}//ICI FAUT FAIRE EN SORTE AVEC LES STATION EN INT
+		Tram(int num,int vitesse,int dMini,bool direction,bool marche,Ligne L,Station S1,Station S2):
+		d_num(num),d_vitesse(vitesse),distanceMinimum(dMini),distance(0),d_direction(direction),d_marche(marche),L(L),S1(S1),S2(S2),suiv(0){}//ICI FAUT FAIRE EN SORTE AVEC LES STATION EN INT
 		
 		int d_num;
 		int d_vitesse;
@@ -28,7 +29,7 @@ class Tram
 		Station S1,S2;
 		bool d_direction;
 		bool d_marche;
-		ListeStations L;
+		Ligne L;
 		Tram *suiv; 
 };
 
