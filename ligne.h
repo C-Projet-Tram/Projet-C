@@ -6,6 +6,7 @@ class Ligne
 	public:
 		Ligne();
 	private:
+		ListeStation d_listeStation;
 };
 
 #endif
