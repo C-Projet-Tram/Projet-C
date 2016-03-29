@@ -9,7 +9,7 @@
 
 using namespace std;
 
-//DÈfinition des variables
+//D√©finition des variables
 ListeTrams ldt;
 
 void loadTramList()
@@ -29,14 +29,14 @@ void loadTramList()
 	TiXmlHandle hdl(&doc);
 	TiXmlElement *elem = hdl.FirstChildElement().FirstChildElement().Element();
 	
-	//CrÈation des trams gr‚ce aux donnÈes XML
+	//Cr√©ation des trams gr√¢ce aux donn√©es XML
 	if(!elem){
 		cout << "root doesn't exist'" << endl;
 	}
 	
 	while (elem){
 		
-		//Assignation des donnÈes XML ‡ des variables
+		//Assignation des donn√©es XML √† des variables
 		int num,dData,mData;
 		bool direction;
 		bool marche;
@@ -49,7 +49,7 @@ void loadTramList()
 		direction = dData;
 		marche = mData;
 		
-		//Ajout ‡ la liste chainÈe de trams
+		//Ajout √† la liste chain√©e de trams
 		ldt.ajouter(num,direction,marche);
 
 		//Iteration 
@@ -75,17 +75,16 @@ void affichageSimulation()
 
 void configSimulation()
 {
-	long tempsDepart=time(0),tempsActuel=tempsDepart,tempsIteration=tempsDepart,deltaT;
-	int duree;
-	cout<<"Indiquez une durÈe (en seconde):"<<endl;
+	long tempsDepart=time(0),tempsActuel=tempsDepart,tempsIteration=tempsDepart;
+	double duree,deltaT;
+	cout<<"Indiquez une dur√©e (en seconde):"<<endl;
 	cin>>duree;
-	duree*=1000;
 	affichageSimulation();//Juste pour test
-	while(tempsActuel-tempsDepart<duree)
+	while(difftime(tempsActuel,tempsDepart)<duree)
 	{
 			tempsIteration=tempsActuel;
 			tempsActuel=time(0);
-			deltaT=tempsActuel-tempsIteration;
+			deltaT=difftime(tempsActuel,tempsIteration);
 			
 	}
 	//A FAIRE
