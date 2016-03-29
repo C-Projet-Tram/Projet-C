@@ -5,7 +5,7 @@ class Tram
 {
 	friend class ListeTrams;
 	public:
-		bool tramDevant(int ligne,bool direction);//vérifie s'il y a un tram devant, renvoie true si oui, false sinon.
+		bool tramDevant(int ligne,bool direction);//vÃ©rifie s'il y a un tram devant, renvoie true si oui, false sinon.
 		void enMarche();
 		/*
 		Tram operator=(Tram T);
@@ -17,6 +17,8 @@ class Tram
 		Tram(int num,bool direction,bool marche):d_num(num),d_direction(direction),d_marche(marche),suiv(0){}
 		
 		int d_num;
+		double d;
+		Station S1,S2;
 		bool d_direction;
 		bool d_marche;
 		Tram *suiv; 
