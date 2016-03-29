@@ -122,28 +122,33 @@ void affichageSimulation()
 
 	//moveto(x,y);
 	//lineto(x,y);
-	
 	getch();
-	closegraph();	
+	closegraph();
+
 }
 
 void configSimulation()
 {
-	double duree;
-	cout<<"Indiquez une duree (en seconde):"<<endl;
+	ListeTrams &t;//need changer les params de base
+	long tempsDepart=time(0),tempsActuel=tempsDepart,tempsIteration=tempsDepart;
+	double duree,deltaT;
+	cout<<"Indiquez une durée (en seconde):"<<endl;
 	cin>>duree;
-	long tempsDepart=clock(),tempsActuel=tempsDepart,tempsIteration=tempsDepart;
-	double deltaT;
 	affichageSimulation();//Juste pour test
-	while(tempsDepart-tempsIteration<duree)
+	while(difftime(tempsActuel,tempsDepart)<duree)
 	{
 			tempsIteration=tempsActuel;
-			tempsActuel=clock();
-			deltaT=tempsActuel-tempsIteration;
+			tempsActuel=time(0);
+			deltaT=difftime(tempsActuel,tempsIteration);
+			while(t)
+			{
+				//changer la distance des trams et vérifier s'il y a quelqu'un devant
+			}
 			
 			
 	}
-	//A FAIRE
+	cout<<"pouet"<<endl;
+	
 }
 
 

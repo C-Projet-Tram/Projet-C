@@ -11,7 +11,34 @@ void Tram::enMarche()
 void Tram::verifDistanceMinimale(const Tram &T2)
 {
 	if (distance-T2.distance<distanceMinimum)
+	{
+		if (d_marche==1)
+			enMarche();
+	}
+	else if (d_marche==0)
 		enMarche();
+}
+
+void Tram::tramAvance(double secondes)
+{
+	double pixels=secondes*d_vitesse;
+	double pixelsTot=S1.distance(S2);
+	double distanceAjoutee=pixels/pixelsTot;
+	distance+=distanceAjoutee;
+	if (distance>1)
+	{
+		if (d_direction==true)
+		{
+			S1=S2;
+			S2=L.stationSuivante(S2);
+			distance=0;
+		}
+		else
+		{
+			S2=S1;
+			S1=L.stationPrecedente(S1);
+		}
+	}
 }
 
 /*

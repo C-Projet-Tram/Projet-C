@@ -1,6 +1,7 @@
 #ifndef TRAM_H
 #define TRAM_H
 #include "station.h"
+#include "ligne.h"
 
 class Tram
 {
@@ -9,6 +10,7 @@ class Tram
 		bool tramDevant(int ligne,bool direction);//verifie s'il y a un tram devant, renvoie true si oui, false sinon.
 		void enMarche();
 		void verifDistanceMinimale(const Tram &T2);
+		void tramAvance(double secondes);
 		/*
 		Tram operator=(Tram T);
 		bool operator==(Tram T);
@@ -26,6 +28,7 @@ class Tram
 		Station S1,S2;
 		bool d_direction;
 		bool d_marche;
+		ListeStations L;
 		Tram *suiv; 
 };
 
