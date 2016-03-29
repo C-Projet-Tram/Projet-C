@@ -7,6 +7,7 @@ class Ligne
 		Ligne();
 	private:
 		ListeStations d_listeStation;
+		static int nblignes;
 };
 
 #endif

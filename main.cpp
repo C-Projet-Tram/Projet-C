@@ -129,16 +129,18 @@ void affichageSimulation()
 
 void configSimulation()
 {
-	long tempsDepart=time(0),tempsActuel=tempsDepart,tempsIteration=tempsDepart;
-	double duree,deltaT;
-	cout<<"Indiquez une durée (en seconde):"<<endl;
+	double duree;
+	cout<<"Indiquez une duree (en seconde):"<<endl;
 	cin>>duree;
+	long tempsDepart=clock(),tempsActuel=tempsDepart,tempsIteration=tempsDepart;
+	double deltaT;
 	affichageSimulation();//Juste pour test
-	while(difftime(tempsActuel,tempsDepart)<duree)
+	while(tempsDepart-tempsIteration<duree)
 	{
 			tempsIteration=tempsActuel;
-			tempsActuel=time(0);
-			deltaT=difftime(tempsActuel,tempsIteration);
+			tempsActuel=clock();
+			deltaT=tempsActuel-tempsIteration;
+			
 			
 	}
 	//A FAIRE
