@@ -12,7 +12,7 @@ using namespace std;
 //Définition des variables
 ListeTrams ldt;
 
-void loadTramList()
+void loadData()
 {
 	
 	//Ouverture du fichier
@@ -27,23 +27,28 @@ void loadTramList()
 
 	//On pointe sur la liste des trams
 	TiXmlHandle hdl(&doc);
-	TiXmlElement *elem = hdl.FirstChildElement().FirstChildElement().Element();
+	//TiXmlElement *elem = hdl.FirstChildElement().FirstChildElement().Element();
+	//TiXmlElement *station = hdl.FirstChildElement("listeStations");
+	TiXmlElement *tram = hdl.FirstChildElement("listeTrams").FirstChildElement("Tram").Element();
 	
 	//Création des trams grâce aux données XML
-	if(!elem){
-		cout << "root doesn't exist'" << endl;
+	/*if(!station){
+		cout << "Aucune station existante" << endl;
+	}*/
+	if(!tram){
+		cout << "Aucun tram existant" << endl;
 	}
 	
-	while (elem){
+	while (tram){
 		
 		//Assignation des données XML à des variables
 		int num,dData,mData;
 		bool direction;
 		bool marche;
 		
-		elem->QueryIntAttribute("num", &num);
-		elem->QueryIntAttribute("direction", &dData);
-		elem->QueryIntAttribute("marche", &mData);
+		tram->QueryIntAttribute("num", &num);
+		tram->QueryIntAttribute("direction", &dData);
+		tram->QueryIntAttribute("marche", &mData);
 		
 		//Conversion des valeurs int en boolean			
 		direction = dData;
@@ -53,7 +58,7 @@ void loadTramList()
 		ldt.ajouter(num,direction,marche);
 
 		//Iteration 
-		elem = elem->NextSiblingElement(); 
+		tram = tram->NextSiblingElement(); 
 	}
 
 }
@@ -112,7 +117,8 @@ int main()
 		{
 		
 			case 1:
-				loadTramList();
+				loadData();
+				cout << ldt.taille();
 				configSimulation();
 								
 				system("pause");

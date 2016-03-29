@@ -1,5 +1,5 @@
 #include "station.h"
-
+#include <cmath>
 Station::Station():posX(0),posY(0)
 {}
 

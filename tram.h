@@ -1,5 +1,6 @@
 #ifndef TRAM_H
 #define TRAM_H
+#include "station.h"
 
 class Tram
 {
