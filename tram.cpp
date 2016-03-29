@@ -8,7 +8,7 @@ void Tram::enMarche()
 		 d_marche=0;
 }
 
-void Tram::verifDistanceMinimale(const Tram &T2) const
+void Tram::verifDistanceMinimale(const Tram &T2)
 {
 	if (distance-T2.distance<distanceMinimum)
 		enMarche();

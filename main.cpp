@@ -27,17 +27,65 @@ void loadData()
 
 	//On pointe sur la liste des trams
 	TiXmlHandle hdl(&doc);
-	//TiXmlElement *elem = hdl.FirstChildElement().FirstChildElement().Element();
-	//TiXmlElement *station = hdl.FirstChildElement("listeStations");
-	TiXmlElement *tram = hdl.FirstChildElement("listeTrams").FirstChildElement("Tram").Element();
 	
-	//Création des trams grâce aux données XML
-	/*if(!station){
-		cout << "Aucune station existante" << endl;
-	}*/
-	if(!tram){
-		cout << "Aucun tram existant" << endl;
+	TiXmlElement* root = doc.FirstChildElement();
+	if(root == NULL)
+	{
+	    cout << "Failed to load file: No root element."<< endl;
+	
 	}
+	
+	//Parcours de toutes le listes
+	for(TiXmlElement* elem = root->FirstChildElement(); elem != NULL; elem = elem->NextSiblingElement())
+	{
+		//Affichage du nom de la liste a charger
+    	string elemName = elem->Value();
+    	cout << "Element a charger : " << elemName << endl;
+    	
+    	if(elemName=="listeStations")
+    	{
+    		TiXmlElement *station = elem->FirstChildElement();
+			if(!station){
+				cout << "Erreur, pas de station !" << endl;
+			}
+			
+			while (station)
+			{
+		
+				//Assignation des donnees XML a des variables
+				int num;
+				
+				station->QueryIntAttribute("num", &num);
+				
+				cout << "Station numero " << num << endl;
+		
+				//Iteration 
+				station = station->NextSiblingElement(); 
+			}
+		}
+		else if(elemName=="listeTrams")
+		{
+			TiXmlElement *tram = elem->FirstChildElement();
+			if(!tram){
+				cout << "Erreur, pas de tram !" << endl;
+			}
+			
+			while (tram){
+		
+				//Assignation des donnees XML a des variables
+				int num;
+				
+				tram->QueryIntAttribute("num", &num);
+				
+				cout << "Tram numero " << num << endl;
+		
+				//Iteration 
+				tram = tram->NextSiblingElement(); 
+			}
+		}
+	}
+		
+	/*
 	
 	while (tram){
 		
@@ -60,6 +108,7 @@ void loadData()
 		//Iteration 
 		tram = tram->NextSiblingElement(); 
 	}
+	*/
 
 }
 
