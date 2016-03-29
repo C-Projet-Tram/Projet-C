@@ -14,7 +14,7 @@ class Tram
 		bool operator!=(Tram T);
 		*/
 	private:
-		Tram():d_num(0),d_direction(0),d_marche(0),suiv(0){}
+		Tram():d_num(0),d_direction(1),d_marche(0),suiv(0),distance(0){}
 		Tram(int num,bool direction,bool marche):d_num(num),d_direction(direction),d_marche(marche),suiv(0){}
 		
 		int d_num;
