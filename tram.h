@@ -7,6 +7,7 @@ class Tram
 	public:
 		bool tramDevant(int ligne,bool direction);//vérifie s'il y a un tram devant, renvoie true si oui, false sinon.
 		void enMarche();
+		void verifDistanceMinimale(const Tram &T2) const;
 		/*
 		Tram operator=(Tram T);
 		bool operator==(Tram T);
