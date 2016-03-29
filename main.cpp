@@ -9,7 +9,7 @@
 
 using namespace std;
 
-//Définition des variables
+//Definition des variables
 ListeTrams ldt;
 
 void loadData()

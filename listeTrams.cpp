@@ -1,4 +1,5 @@
 #include "listeTrams.h"
+
 ListeTrams::ListeTrams():t(0)
 {}
 
@@ -26,19 +27,19 @@ int ListeTrams::taille() const
 }
 
 //Méthode qui ajoute un tram à la liste chainée dans l'ordre croissant de son num
-void ListeTrams::ajouter(int num,bool direction,bool marche) 
+void ListeTrams::ajouter(int num,int vitesse,int dMini,int s1,int s2,bool direction,bool marche) 
 {
 	//Cas chaînon vide
 	if(t == 0)
 	{
-		t= new Tram(num,direction,marche);
+		t= new Tram(num,vitesse,dMini,s1,s2,direction,marche);
 		return;
 	}
 	//Cas tête
 	if(num < t->d_num)
 	{
 		Tram *tmp = t;		
-		t = new Tram(num,direction,marche);
+		t = new Tram(num,vitesse,dMini,s1,s2,direction,marche);
 		t->suiv = tmp;
 		return;
 	}
@@ -50,7 +51,7 @@ void ListeTrams::ajouter(int num,bool direction,bool marche)
 		t1=t1->suiv;
 	}
 	
-	Tram *t = new Tram(num,direction,marche);
+	Tram *t = new Tram(num,vitesse,dMini,s1,s2,direction,marche);
 	t0->suiv = t;
 	t->suiv = t1;
 }

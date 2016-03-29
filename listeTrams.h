@@ -8,7 +8,7 @@ class ListeTrams
 		ListeTrams();
 		~ListeTrams();
 		int taille() const;
-		void ajouter(int num,bool direction,bool marche);
+		void ajouter(int num,int vitesse,int dMini,int s1,int s2,bool direction,bool marche);
 		/*
 		void enleverTram(Tram T);
 		ListeTrams operator+=(Tram T);
