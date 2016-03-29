@@ -9,6 +9,7 @@ class Station
 		double distance(const Station &S2) const;
 	private:
 		int posX,posY;
+		int tempsArret;
 };
 
 #endif
