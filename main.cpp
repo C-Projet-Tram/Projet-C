@@ -9,10 +9,10 @@
 
 using namespace std;
 
-//Définition des variables
+//DÃ©finition des variables
 ListeTrams ldt;
 
-void loadTramList()
+void loadData()
 {
 	
 	//Ouverture du fichier
@@ -27,33 +27,38 @@ void loadTramList()
 
 	//On pointe sur la liste des trams
 	TiXmlHandle hdl(&doc);
-	TiXmlElement *elem = hdl.FirstChildElement().FirstChildElement().Element();
+	//TiXmlElement *elem = hdl.FirstChildElement().FirstChildElement().Element();
+	//TiXmlElement *station = hdl.FirstChildElement("listeStations");
+	TiXmlElement *tram = hdl.FirstChildElement("listeTrams").FirstChildElement("Tram").Element();
 	
-	//Création des trams grâce aux données XML
-	if(!elem){
-		cout << "root doesn't exist'" << endl;
+	//CrÃ©ation des trams grÃ¢ce aux donnÃ©es XML
+	/*if(!station){
+		cout << "Aucune station existante" << endl;
+	}*/
+	if(!tram){
+		cout << "Aucun tram existant" << endl;
 	}
 	
-	while (elem){
+	while (tram){
 		
-		//Assignation des données XML à des variables
+		//Assignation des donnÃ©es XML Ã  des variables
 		int num,dData,mData;
 		bool direction;
 		bool marche;
 		
-		elem->QueryIntAttribute("num", &num);
-		elem->QueryIntAttribute("direction", &dData);
-		elem->QueryIntAttribute("marche", &mData);
+		tram->QueryIntAttribute("num", &num);
+		tram->QueryIntAttribute("direction", &dData);
+		tram->QueryIntAttribute("marche", &mData);
 		
 		//Conversion des valeurs int en boolean			
 		direction = dData;
 		marche = mData;
 		
-		//Ajout à la liste chainée de trams
+		//Ajout Ã  la liste chainÃ©e de trams
 		ldt.ajouter(num,direction,marche);
 
 		//Iteration 
-		elem = elem->NextSiblingElement(); 
+		tram = tram->NextSiblingElement(); 
 	}
 
 }
@@ -75,16 +80,16 @@ void affichageSimulation()
 
 void configSimulation()
 {
-	long tempsDepart=time(0),tempsActuel=tempsDepart,tempsIteration=tempsDepart,deltaT;
-	int duree;
-	cout<<"Indiquez une durée (en seconde):"<<endl;
+	long tempsDepart=time(0),tempsActuel=tempsDepart,tempsIteration=tempsDepart;
+	double duree,deltaT;
+	cout<<"Indiquez une durÃ©e (en seconde):"<<endl;
 	cin>>duree;
 	affichageSimulation();//Juste pour test
-	while(tempsActuel-tempsDepart<duree)
+	while(difftime(tempsActuel,tempsDepart)<duree)
 	{
 			tempsIteration=tempsActuel;
 			tempsActuel=time(0);
-			deltaT=tempsActuel-tempsIteration;
+			deltaT=difftime(tempsActuel,tempsIteration);
 			
 	}
 	//A FAIRE
@@ -112,7 +117,8 @@ int main()
 		{
 		
 			case 1:
-				loadTramList();
+				loadData();
+				cout << ldt.taille();
 				configSimulation();
 								
 				system("pause");

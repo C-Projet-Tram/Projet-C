@@ -8,10 +8,10 @@ void Tram::enMarche()
 		 d_marche=0;
 }
 
-bool Tram::tramDevant(int ligne,bool direction)
+void Tram::verifDistanceMinimale(const Tram &T2) const
 {
-	//à remplir en fonction de la liste chaînée...
-	//Ok maggle
+	if (distance-T2.distance<distanceMinimum)
+		enMarche();
 }
 
 /*

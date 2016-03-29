@@ -5,7 +5,11 @@ class Station
 {
 	public:
 		Station();
+		Station(int X,int Y);
+		double distance(const Station &S2) const;
 	private:
+		int posX,posY;
+		int tempsArret;
 };
 
 #endif
