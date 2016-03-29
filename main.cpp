@@ -79,7 +79,6 @@ void configSimulation()
 	int duree;
 	cout<<"Indiquez une durée (en seconde):"<<endl;
 	cin>>duree;
-	duree*=1000;
 	affichageSimulation();//Juste pour test
 	while(tempsActuel-tempsDepart<duree)
 	{
