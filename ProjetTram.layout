@@ -1,12 +1,21 @@
 [Editors]
 <<<<<<< HEAD
 Order=0,8,7,6,5,4,3,2,1
+<<<<<<< HEAD
 Focused=2
 [Editor_0]
 <<<<<<< HEAD
 CursorCol=36
 CursorRow=149
 TopLine=129
+=======
+Focused=7
+[Editor_0]
+<<<<<<< HEAD
+CursorCol=5
+CursorRow=60
+TopLine=1
+>>>>>>> origin/master
 =======
 Order=0,2,1,8,7,10,9,6,5,4,3,19,17,18
 Focused=19
@@ -36,6 +45,7 @@ TopLine=6
 LeftChar=1
 [Editor_2]
 <<<<<<< HEAD
+<<<<<<< HEAD
 CursorCol=9
 CursorRow=67
 TopLine=49
@@ -43,6 +53,15 @@ LeftChar=1
 [Editor_3]
 CursorCol=21
 CursorRow=1
+=======
+CursorCol=10
+CursorRow=49
+TopLine=1
+LeftChar=1
+[Editor_3]
+CursorCol=91
+CursorRow=12
+>>>>>>> origin/master
 TopLine=1
 =======
 CursorCol=8
@@ -56,9 +75,15 @@ TopLine=6
 >>>>>>> origin/master
 LeftChar=1
 [Editor_4]
+<<<<<<< HEAD
 CursorCol=10
 CursorRow=69
 TopLine=46
+=======
+CursorCol=60
+CursorRow=57
+TopLine=1
+>>>>>>> origin/master
 LeftChar=1
 [Editor_5]
 CursorCol=17
