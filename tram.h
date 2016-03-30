@@ -9,7 +9,7 @@ class Tram
 	public:
 		void enMarche();
 		void verifDistanceMinimale(const Tram *T2);
-		void tramAvance(double secondes);
+		void tramAvance(double milisecondes);
 		void changeDirection();
 		Tram *suivant();
 		/*

@@ -11,6 +11,7 @@ class ListeTrams
 		int taille() const;
 		void ajouter(int num,int vitesse,int dMini,Station S1,bool direction,bool marche,Ligne L);
 		Tram *tram();
+		void Next();
 		/*
 		Tram *operator=(const Tram *T);
 		void enleverTram(Tram T);
