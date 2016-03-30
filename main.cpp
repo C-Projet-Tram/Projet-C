@@ -12,6 +12,7 @@ using namespace std;
 //Definition des variables
 ListeTrams ldt;
 
+
 void loadData()
 {
 	
@@ -53,14 +54,14 @@ void loadData()
 			{
 		
 				//Assignation des donnees XML a des variables
-				int num;
+				string num;
 				
 				station->QueryIntAttribute("num", &num);
 				
 				cout << "Station numero " << num << endl;
 		
 				//Iteration 
-				station = station->NextSiblingElement(); 
+				station = station->NextSiblingElement();
 			}
 		}
 		else if(elemName=="listeTrams")
