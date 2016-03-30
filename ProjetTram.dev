@@ -29,7 +29,7 @@ IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=0
 CompilerSettings=0000000000000000000000000
-UnitCount=19
+UnitCount=20
 
 [VersionInfo]
 Major=1
@@ -232,6 +232,16 @@ BuildCmd=
 
 [Unit19]
 FileName=winbgi.cpp
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit20]
+FileName=interfacegraphique.cpp
 CompileCpp=1
 Folder=
 Compile=1
