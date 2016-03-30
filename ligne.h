@@ -9,6 +9,7 @@ class Ligne
 {
 	public:
 		Ligne();
+		Ligne(vector<Station> liste):d_liste(liste){}
 		Station stationSuivante(const Station &S) const;
 		Station stationPrecedente(const Station &S) const;
 		int TailleTableau() const;

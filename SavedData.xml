@@ -1,9 +1,9 @@
 <Data>
 	<listeStations>
-		<Station posX="100" posY="100"/>
-		<Station posX="200" posY="200"/>
-		<Station posX="300" posY="300"/>
-		<Station posX="400" posY="400"/>
+		<Station posX="100" posY="100" tempsArret="5"/>
+		<Station posX="200" posY="200" tempsArret="5"/>
+		<Station posX="300" posY="300" tempsArret="5"/>
+		<Station posX="400" posY="400" tempsArret="5"/>
 	</listeStations>
 	
 	<listeLignes>

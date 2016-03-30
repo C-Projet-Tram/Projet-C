@@ -55,11 +55,17 @@ void loadData()
 			{
 		
 				//Assignation des donnees XML a des variables
-				int num;
+				int posX,posY,tempsArret;
 				
-				station->QueryIntAttribute("num", &num);
+				station->QueryIntAttribute("posX", &posX);
+				cout << "Station en (" << posX << ",";
+				station->QueryIntAttribute("posY", &posY);
+				cout <<  posY << ") : "<< endl;
+				station->QueryIntAttribute("tempsArret", &tempsArret);
+				cout << "\tTemps d'arret : ' " << tempsArret << endl;
 				
-				cout << "Station numero " << num << endl;
+				
+				Station s(posX,posY,tempsArret);
 		
 				//Iteration 
 				station = station->NextSiblingElement();
@@ -77,10 +83,12 @@ void loadData()
 				//Assignation des donnees XML a des variables
 				int num;
 				
-				ligne->QueryIntAttribute("num", &num);
-				
+				ligne->QueryIntAttribute("liste", &num);
 				cout << "Ligne numero " << num << endl;
-		
+				
+				Ligne l(lds);
+				
+				ldl.push_back(l);
 				//Iteration 
 				ligne = ligne->NextSiblingElement(); 
 			}
@@ -95,13 +103,29 @@ void loadData()
 			while (tram){
 		
 				//Assignation des donnees XML a des variables
-				int num,dData,mData;
+				int num,vitesse,distanceMini,direct,mar,ligne,station;
+				
 				
 				tram->QueryIntAttribute("num", &num);
 				cout << "Tram numero " << num << endl;
+				tram->QueryIntAttribute("vitesse", &vitesse);
+				cout << "\tVitesse : " << vitesse << endl;
+				tram->QueryIntAttribute("distanceMini", &distanceMini);
+				cout << "\tDistance minimum : " << distanceMini << endl;
+				tram->QueryIntAttribute("direction", &direct);
+				cout << "\tDirection : " << direct << endl;
+				tram->QueryIntAttribute("marche", &mar);
+				cout << "\tMarche : " << mar << endl;
+				tram->QueryIntAttribute("ligne", &ligne);
+				cout << "\tLigne : " << ligne << endl;
+				tram->QueryIntAttribute("station", &station);
+				cout << "\tStation : " << station << endl;
+				
+				bool direction = direct;
+				bool marche = marche;
 				
 				//Ajout à la liste chainee de trams
-				ldt.ajouter(num,vitesse,distanceMini,direction,marche,ligne,station);
+				ldt.ajouter(num,vitesse,distanceMini,lds[station],direction,marche,ldl[ligne]);
 				
 				//Iteration 
 				tram = tram->NextSiblingElement(); 

@@ -1,6 +1,6 @@
 #include "station.h"
 #include <cmath>
-Station::Station():posX(0),posY(0)
+Station::Station():posX(0),posY(0),tempsArret(0)
 {}
 
 double Station::distance(const Station &S) const

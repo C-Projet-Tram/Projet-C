@@ -5,7 +5,7 @@ class Station
 {
 	public:
 		Station();
-		Station(int X,int Y);
+		Station(int X,int Y,int tArret):posX(X),posY(Y),tempsArret(tArret){}
 		double distance(const Station &S) const;
 		bool operator!=(const Station &S) const;
 		bool operator==(const Station &S) const;
