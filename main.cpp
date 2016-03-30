@@ -62,11 +62,11 @@ void loadData()
 				station->QueryIntAttribute("posY", &posY);
 				cout <<  posY << ") : "<< endl;
 				station->QueryIntAttribute("tempsArret", &tempsArret);
-				cout << "\tTemps d'arret : ' " << tempsArret << endl;
+				cout << "\tTemps d'arret : " << tempsArret << endl;
 				
 				
 				Station s(posX,posY,tempsArret);
-		
+				lds.push_back(s);
 				//Iteration 
 				station = station->NextSiblingElement();
 			}
@@ -87,7 +87,6 @@ void loadData()
 				cout << "Ligne numero " << num << endl;
 				
 				Ligne l(lds);
-				
 				ldl.push_back(l);
 				//Iteration 
 				ligne = ligne->NextSiblingElement(); 
