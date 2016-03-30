@@ -64,6 +64,11 @@ Tram *ListeTrams::tram()
 	return t;
 }
 
+void ListeTrams::Next()
+{
+	t=t->suiv;
+}
+
 /* OLD
 Tram *ListeTrams::operator=(const Tram *T)
 {

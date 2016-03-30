@@ -19,9 +19,9 @@ void Tram::verifDistanceMinimale(const Tram *T2)
 	}
 }
 
-void Tram::tramAvance(double secondes)
+void Tram::tramAvance(double milisecondes)
 {
-	double pixels=secondes*d_vitesse;
+	double pixels=milisecondes*d_vitesse/1000;
 	double pixelsTot=S1.distance(S2);
 	double distanceAjoutee=pixels/pixelsTot;
 	distance+=distanceAjoutee;
