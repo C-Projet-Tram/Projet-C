@@ -32,7 +32,7 @@ CompilerSettings=0000000000000000000000000
 <<<<<<< HEAD
 UnitCount=17
 =======
-UnitCount=20
+UnitCount=18
 >>>>>>> origin/master
 
 [VersionInfo]
@@ -204,27 +204,6 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit18]
-FileName=graphics.h
-CompileCpp=1
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit19]
-FileName=winbgi.cpp
-CompileCpp=1
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-<<<<<<< HEAD
-
 [Unit2]
 FileName=tram.h
 CompileCpp=1
@@ -249,6 +228,16 @@ BuildCmd=
 [Unit20]
 FileName=interfacegraphique.cpp
 >>>>>>> origin/master
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit18]
+FileName=interfacegraphique.cpp
 CompileCpp=1
 Folder=
 Compile=1

@@ -2,12 +2,12 @@
 <<<<<<< HEAD
 Order=0,8,7,6,5,4,3,2,1
 <<<<<<< HEAD
-Focused=3
+Focused=0
 [Editor_0]
 <<<<<<< HEAD
-CursorCol=24
-CursorRow=98
-TopLine=82
+CursorCol=5
+CursorRow=157
+TopLine=129
 =======
 Focused=7
 LeftChar=1
@@ -40,20 +40,20 @@ TopLine=14
 >>>>>>> origin/master
 LeftChar=1
 [Editor_1]
-CursorCol=8
-CursorRow=15
+CursorCol=30
+CursorRow=12
 TopLine=6
 LeftChar=1
 [Editor_2]
 <<<<<<< HEAD
 <<<<<<< HEAD
-CursorCol=9
-CursorRow=67
-TopLine=1
+CursorCol=43
+CursorRow=24
+TopLine=4
 LeftChar=1
 [Editor_3]
-CursorCol=21
-CursorRow=1
+CursorCol=15
+CursorRow=14
 =======
 CursorCol=10
 CursorRow=49
@@ -77,9 +77,9 @@ TopLine=6
 LeftChar=1
 [Editor_4]
 <<<<<<< HEAD
-CursorCol=10
+CursorCol=12
 CursorRow=69
-TopLine=1
+TopLine=36
 =======
 CursorCol=60
 CursorRow=57
