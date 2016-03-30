@@ -147,6 +147,7 @@ void configSimulation()
 				//changer la distance des trams et vérifier s'il y a quelqu'un devant
 				tmp.tram()->verifDistanceMinimale(tmp.tram()->suivant());
 				tmp.tram()->tramAvance(deltaT);
+				tmp.tram()=tmp.tram()->suivant();
 			}
 	}
 }

@@ -64,12 +64,12 @@ Tram *ListeTrams::tram()
 	return t;
 }
 
+/* OLD
 Tram *ListeTrams::operator=(const Tram *T)
 {
 	*this=T;
 }
 
-/* OLD
 void ListeTrams::ajoutTram(Tram T)
 {
 	ListeTrams *tmp=this;//T'es sûr pour le this ?

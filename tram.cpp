@@ -73,14 +73,21 @@ void Tram::changeDirection()
 }
 
 
+/*
 Tram Tram::operator=(Tram T)
 {
 	if (this==&T) return T;
+	d_num=T.d_num;
+	d_vitesse=T.d_vitesse;
+	distance=T.distance;
+	S1=T.S1;
+	S2=T.S2;
 	d_direction=T.d_direction;
 	d_marche=T.d_marche;
+	L=T.L;
+	suiv=T.suiv;
 	return *this;
 }
-/*
 bool Tram::operator==(Tram T)
 {
 	if (this==&T) return true;

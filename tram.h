@@ -12,8 +12,8 @@ class Tram
 		void tramAvance(double secondes);
 		void changeDirection();
 		Tram *suivant();
-		Tram operator=(Tram T);
 		/*
+		Tram operator=(Tram T);
 		bool operator==(Tram T);
 		bool operator!=(Tram T);
 		*/
