@@ -11,7 +11,8 @@ using namespace std;
 
 //Definition des variables
 ListeTrams ldt;
-
+vector<Ligne> ldl;
+vector<Station> lds;
 
 void loadData()
 {
@@ -64,6 +65,26 @@ void loadData()
 				station = station->NextSiblingElement();
 			}
 		}
+		else if(elemName=="listeLignes")
+		{
+			TiXmlElement *ligne = elem->FirstChildElement();
+			if(!ligne){
+				cout << "Erreur, pas de ligne !" << endl;
+			}
+			
+			while (ligne){
+		
+				//Assignation des donnees XML a des variables
+				int num;
+				
+				ligne->QueryIntAttribute("num", &num);
+				
+				cout << "Ligne numero " << num << endl;
+		
+				//Iteration 
+				ligne = ligne->NextSiblingElement(); 
+			}
+		}
 		else if(elemName=="listeTrams")
 		{
 			TiXmlElement *tram = elem->FirstChildElement();
@@ -74,12 +95,14 @@ void loadData()
 			while (tram){
 		
 				//Assignation des donnees XML a des variables
-				int num;
+				int num,dData,mData;
 				
 				tram->QueryIntAttribute("num", &num);
-				
 				cout << "Tram numero " << num << endl;
-		
+				
+				//Ajout à la liste chainee de trams
+				ldt.ajouter(num,vitesse,distanceMini,direction,marche,ligne,station);
+				
 				//Iteration 
 				tram = tram->NextSiblingElement(); 
 			}

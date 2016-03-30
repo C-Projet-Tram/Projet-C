@@ -7,13 +7,12 @@
 	</listeStations>
 	
 	<listeLignes>
-		<Ligne liste="paspossible" />
-		<Ligne liste="paspossible" />
+		<Ligne liste="0" />
 	</listeLignes>
 	
 	<listeTrams>
-		<Tram num="1" vitesse="20" distanceMini="50" direction="1" marche="0" ligne="1" station="1" />
-		<Tram num="2" vitesse="20" distanceMini="50" direction="0" marche="0" ligne="1" station="3" />
-		<Tram num="3" vitesse="20" distanceMini="50" direction="0" marche="0" ligne="1" station="2" />
+		<Tram num="1" vitesse="20" distanceMini="50" direction="1" marche="0" ligne="0" station="0" />
+		<Tram num="2" vitesse="20" distanceMini="50" direction="0" marche="0" ligne="0" station="2" />
+		<Tram num="3" vitesse="20" distanceMini="50" direction="0" marche="0" ligne="0" station="1" />
 	</listeTrams>	
 </Data>
