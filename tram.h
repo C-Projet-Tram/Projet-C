@@ -7,13 +7,13 @@ class Tram
 {
 	friend class ListeTrams;
 	public:
-		bool tramDevant(int ligne,bool direction);//verifie s'il y a un tram devant, renvoie true si oui, false sinon.
 		void enMarche();
-		void verifDistanceMinimale(const Tram &T2);
+		void verifDistanceMinimale(const Tram *T2);
 		void tramAvance(double secondes);
-		Tram suivant();
-		/*
+		void changeDirection();
+		Tram *suivant();
 		Tram operator=(Tram T);
+		/*
 		bool operator==(Tram T);
 		bool operator!=(Tram T);
 		*/

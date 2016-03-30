@@ -6,11 +6,12 @@ class ListeTrams
 {
 	public:
 		ListeTrams();
-		ListeTrams(const ListeTrams *lt);
+		ListeTrams(const ListeTrams &lt);
 		~ListeTrams();
 		int taille() const;
-		void ajouter(int num,int vitesse,int dMini,Station S1,Station S2,bool direction,bool marche,Ligne L);
-		Tram tram();
+		void ajouter(int num,int vitesse,int dMini,Station S1,bool direction,bool marche,Ligne L);
+		Tram *tram();
+		Tram *operator=(const Tram *T);
 		/*
 		void enleverTram(Tram T);
 		ListeTrams operator+=(Tram T);

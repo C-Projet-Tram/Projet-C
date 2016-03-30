@@ -11,6 +11,8 @@ class Ligne
 		Ligne();
 		Station stationSuivante(const Station &S) const;
 		Station stationPrecedente(const Station &S) const;
+		int TailleTableau() const;
+		vector <Station> GetListe() const;
 		bool operator==(const Ligne &L) const;
 	private:
 		vector <Station> d_liste;

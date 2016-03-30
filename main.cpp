@@ -54,7 +54,7 @@ void loadData()
 			{
 		
 				//Assignation des donnees XML a des variables
-				string num;
+				int num;
 				
 				station->QueryIntAttribute("num", &num);
 				
@@ -130,7 +130,7 @@ void affichageSimulation()
 
 void configSimulation()
 {
-	ListeTrams *lt;//need changer les params de base
+	ListeTrams lt;//need changer les params de base
 	long tempsDepart=time(0),tempsActuel=tempsDepart,tempsIteration=tempsDepart;
 	double duree,deltaT;
 	cout<<"Indiquez une durée (en seconde):"<<endl;
@@ -141,12 +141,12 @@ void configSimulation()
 			tempsIteration=tempsActuel;
 			tempsActuel=time(0);
 			deltaT=difftime(tempsActuel,tempsIteration);
-			ListeTrams *tmp=new ListeTrams(lt);
-			while(tmp)
+			ListeTrams tmp(lt);
+			while(tmp.tram()->suivant())
 			{
 				//changer la distance des trams et vérifier s'il y a quelqu'un devant
-				tmp->tram().verifDistanceMinimale(tmp->tram().suivant());
-				tmp->tram().tramAvance(deltaT);
+				tmp.tram()->verifDistanceMinimale(tmp.tram()->suivant());
+				tmp.tram()->tramAvance(deltaT);
 			}
 	}
 }

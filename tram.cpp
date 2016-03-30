@@ -2,17 +2,14 @@
 
 void Tram::enMarche()
 {
-	if (d_marche==0) 
-		d_marche=1;
-	else
-		 d_marche=0;
+	d_marche=!d_marche;
 }
 
-void Tram::verifDistanceMinimale(const Tram &T2)
+void Tram::verifDistanceMinimale(const Tram *T2)
 {
-	if (L==T2.L)
+	if (L==T2->L)
 	{
-		if (distance-T2.distance<distanceMinimum)
+		if (distance-T2->distance<distanceMinimum)
 		{
 			if (d_marche==1)
 				enMarche();
@@ -32,24 +29,50 @@ void Tram::tramAvance(double secondes)
 	{
 		if (d_direction==true)
 		{
-			S1=S2;
-			S2=L.stationSuivante(S2);
-			distance=0;
+			if (L.GetListe()[L.TailleTableau()]==S2)
+			{
+				changeDirection();
+				Station Stmp=S2;
+				S2=S1;
+				S1=Stmp;
+			}
+			else
+			{
+				S1=S2;
+				S2=L.stationSuivante(S2);
+				distance=0;
+			}
 		}
 		else
 		{
-			S2=S1;
-			S1=L.stationPrecedente(S1);
+			if (L.GetListe()[0]==S2)
+			{
+				changeDirection();
+				Station Stmp=S2;
+				S2=S1;
+				S1=Stmp;
+			}
+			else
+			{
+				S2=S1;
+				S1=L.stationPrecedente(S1);
+				distance=0;
+			}
 		}
 	}
 }
 
-Tram Tram::suivant()
+Tram *Tram::suivant()
 {
-	return *suiv;
+	return suiv;
 }
 
-/*
+void Tram::changeDirection()
+{
+	d_direction=!d_direction;
+}
+
+
 Tram Tram::operator=(Tram T)
 {
 	if (this==&T) return T;
@@ -57,7 +80,7 @@ Tram Tram::operator=(Tram T)
 	d_marche=T.d_marche;
 	return *this;
 }
-
+/*
 bool Tram::operator==(Tram T)
 {
 	if (this==&T) return true;

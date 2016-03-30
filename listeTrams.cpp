@@ -3,7 +3,7 @@
 ListeTrams::ListeTrams():t(0)
 {}
 
-ListeTrams::ListeTrams(const ListeTrams *lt):t(lt->t)
+ListeTrams::ListeTrams(const ListeTrams &lt):t(lt.t)
 {}
 
 ListeTrams::~ListeTrams()
@@ -30,19 +30,19 @@ int ListeTrams::taille() const
 }
 
 //Méthode qui ajoute un tram à la liste chainée dans l'ordre croissant de son num
-void ListeTrams::ajouter(int num,int vitesse,int dMini,Station S1,Station S2,bool direction,bool marche,Ligne L) 
+void ListeTrams::ajouter(int num,int vitesse,int dMini,Station S1,bool direction,bool marche,Ligne L) 
 {
 	//Cas chaînon vide
 	if(t == 0)
 	{
-		t= new Tram(num,vitesse,dMini,direction,marche,L,S1,S2);
+		t= new Tram(num,vitesse,dMini,direction,marche,L,S1);
 		return;
 	}
 	//Cas tête
 	if(num < t->d_num)
 	{
 		Tram *tmp = t;		
-		t = new Tram(num,vitesse,dMini,direction,marche,L,S1,S2);
+		t = new Tram(num,vitesse,dMini,direction,marche,L,S1);
 		t->suiv = tmp;
 		return;
 	}
@@ -54,14 +54,19 @@ void ListeTrams::ajouter(int num,int vitesse,int dMini,Station S1,Station S2,boo
 		t1=t1->suiv;
 	}
 	
-	Tram *t = new Tram(num,vitesse,dMini,direction,marche,L,S1,S2);
+	Tram *t = new Tram(num,vitesse,dMini,direction,marche,L,S1);
 	t0->suiv = t;
 	t->suiv = t1;
 }
 
-Tram ListeTrams::tram()
+Tram *ListeTrams::tram()
 {
-	return *t;
+	return t;
+}
+
+Tram *ListeTrams::operator=(const Tram *T)
+{
+	*this=T;
 }
 
 /* OLD

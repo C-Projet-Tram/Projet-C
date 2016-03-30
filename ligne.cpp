@@ -27,3 +27,13 @@ bool Ligne::operator==(const Ligne &L) const
 			return false;
 	return true;
 }
+
+int Ligne::TailleTableau() const
+{
+	return d_liste.size();
+}
+
+vector <Station> Ligne::GetListe() const
+{
+	return d_liste;
+}
