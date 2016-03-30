@@ -1,14 +1,19 @@
 <Data>
 	<listeStations>
-		<Station num="1" posX="100" posY="100"/>
-		<Station num="2" posX="200" posY="200"/>
-		<Station num="3" posX="300" posY="300"/>
-		<Station num="4" posX="400" posY="400"/>
+		<Station posX="100" posY="100"/>
+		<Station posX="200" posY="200"/>
+		<Station posX="300" posY="300"/>
+		<Station posX="400" posY="400"/>
 	</listeStations>
 	
+	<listeLignes>
+		<Ligne liste="paspossible" />
+		<Ligne liste="paspossible" />
+	</listeLignes>
+	
 	<listeTrams>
-		<Tram num="1" vitesse="20" distanceMini="50" stationDepart="1" stationProchaine="2" direction="1" marche="0"/>
-		<Tram num="2" vitesse="20" distanceMini="50" stationDepart="2" stationProchaine="1" direction="0" marche="0"/>
-		<Tram num="3" vitesse="20" distanceMini="50" stationDepart="3" stationProchaine="2" direction="0" marche="0"/>
+		<Tram num="1" vitesse="20" distanceMini="50" direction="1" marche="0" ligne="1" station="1" />
+		<Tram num="2" vitesse="20" distanceMini="50" direction="0" marche="0" ligne="1" station="3" />
+		<Tram num="3" vitesse="20" distanceMini="50" direction="0" marche="0" ligne="1" station="2" />
 	</listeTrams>	
 </Data>
