@@ -9,11 +9,23 @@ class Tram
 	public:
 		Tram(const Tram *T2);
 		void enMarche();
-		void verifDistanceMinimale(const Tram *T2);
-		void verifToutTram(const Tram *T2);
+		void verifDistanceMinimale(Tram *T2);
+		void verifToutTram(Tram *T2);
 		void tramAvance(double milisecondes);
 		void changeDirection();
-		Tram *suivant();
+		
+		
+		int getNum() const;
+		int getVitesse() const;
+		int getDistanceMinimum() const;
+		double getDistance() const;
+		Station getStation1() const;
+		Station getStation2() const;
+		bool getDirection() const;
+		bool getMarche() const;
+		Ligne getLigne() const;
+		Tram *getSuivant() const;
+		Tram *getSuivant();
 		/*
 		Tram operator=(Tram T);
 		bool operator==(Tram T);

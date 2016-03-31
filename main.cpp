@@ -172,7 +172,7 @@ void configSimulation(ListeTrams &ldt,const vector <Ligne> &ldl)
 		while(tmp.tram())
 		{
 			//changer la distance des trams et vérifier s'il y a quelqu'un devant
-			tmp.tram()->verifToutTram(tmp.tram()->suivant());
+			tmp.tram()->verifToutTram(tmp.tram()->getSuivant());
 			tmp.tram()->tramAvance(deltaT);
 			tmp.Next();
 		}
@@ -212,7 +212,14 @@ int main()
 				system("pause");
 				system("cls");
 			break;
+<<<<<<< HEAD
 
+=======
+			/* Je pose ça la, désolé. 
+			A la fin de la durée donné. Afficher une petite fenêtre pour demander si on veut quitter l'appli ou relancer la simu.
+			Donc soit on ferme tout, soit on remontre la 1ère fenêtre ?
+			*/
+>>>>>>> origin/master
 		}
 	}
 }
