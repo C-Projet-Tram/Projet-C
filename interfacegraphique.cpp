@@ -16,7 +16,6 @@ void afficherLigneEtStation(const vector<Ligne> &ldl)
 	Station station1,station2;
 	for (unsigned int i = 0 ; i < ldl.size() ; i++) {
 		setcolor(i+1);
-		station1=station2;
 		for (int j = 0 ; j < ldl[i].tailleTableau()-1 ; j++) {
 			station1 = ldl[i].getStation(j);
 			station2 = ldl[i].getStation(j+1);

@@ -176,7 +176,6 @@ void configSimulation(ListeTrams &ldt , const vector < Ligne > &ldl)
 		}
 		afficher(ldl,ldt);
 		clockActuel = clock();
-		cout << clockActuel << endl;
 	}
 }
 
@@ -203,6 +202,8 @@ int main()
 				loadData();
 				cout << ldt.taille();
 				configSimulation(ldt,ldl);
+				getch();
+				closegraph();
 								
 				system("pause");
 				system("cls");
@@ -210,7 +211,6 @@ int main()
 			
 			case 2:
 				{
-					cout << "log 1" << endl;
 				}
 		}
 	}

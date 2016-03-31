@@ -1,10 +1,5 @@
 #include "tram.h"
 
-void Tram::enMarche()
-{
-	d_marche = !d_marche;
-}
-
 Tram::Tram(const Tram *tram)
 {
 	d_num=tram->d_num;
@@ -77,6 +72,12 @@ Tram *Tram::getSuivant() const
 {
 	return suiv;
 }
+
+Tram *Tram::getSuivant()
+{
+	return suiv;
+}
+
 
 void Tram::verifToutTram(Tram *tram)
 {
@@ -161,10 +162,9 @@ void Tram::changeDirection()
 	d_direction = !d_direction;
 }
 
-
-Tram *Tram::getSuivant()
+void Tram::enMarche()
 {
-	return suiv;
+	d_marche = !d_marche;
 }
 
 /*
