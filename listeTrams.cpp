@@ -30,7 +30,7 @@ int ListeTrams::taille() const
 }
 
 //Méthode qui ajoute un tram à la liste chainée dans l'ordre croissant de son num
-void ListeTrams::ajouter(int num,int vitesse,int dMini,const Station &S1,bool direction,bool marche,const Ligne &L) 
+void ListeTrams::ajouter(int num,int vitesse,int dMini,Station S1,bool direction,bool marche,const Ligne &L) 
 {
 	//Cas chaînon vide
 	if(t == 0)

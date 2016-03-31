@@ -9,7 +9,7 @@ class ListeTrams
 		ListeTrams(const ListeTrams &lt);
 		~ListeTrams();
 		int taille() const;
-		void ajouter(int num,int vitesse,int dMini,const Station &S1,bool direction,bool marche,const Ligne &L);
+		void ajouter(int num,int vitesse,int dMini,Station S1,bool direction,bool marche,const Ligne &L);
 		Tram *tram();
 		void Next();
 		/*
