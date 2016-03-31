@@ -38,7 +38,7 @@ bool Ligne::operator==(const Ligne &L) const
 	return true;
 }
 
-int Ligne::TailleTableau() const
+int Ligne::tailleTableau() const
 {
 	return d_liste.size();
 }
