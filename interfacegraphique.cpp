@@ -28,7 +28,7 @@ void afficherLigneEtStation(vector<Ligne> ldl) {
 }
 
 void afficherTram(const ListeTrams &ldt) {
-	setcolor(0);
+	setcolor(WHITE);
 	ListeTrams tmp = ldt;
 	Station s1, s2;
 	int posX, posY;
@@ -49,7 +49,7 @@ void afficherTram(const ListeTrams &ldt) {
 }
 
 void afficher(vector<Ligne> ldl, const ListeTrams &ldt) {
-	
+	cleardevice();
 	afficherLigneEtStation(ldl);
 	afficherTram(ldt);
 }
