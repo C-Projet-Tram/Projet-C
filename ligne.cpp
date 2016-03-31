@@ -1,7 +1,17 @@
 #include "Ligne.h"
 
-Ligne::Ligne()
+Ligne::Ligne():d_liste(0)
 {}
+
+void Ligne::ajouter(const Station &S)
+{
+	d_liste.push_back(S);
+}
+
+Station Ligne::getStation(int i)
+{
+	return d_liste[i];
+}
 
 Station Ligne::stationSuivante(const Station &S) const
 {
@@ -33,7 +43,7 @@ int Ligne::TailleTableau() const
 	return d_liste.size();
 }
 
-vector <Station> Ligne::GetListe() const
+vector <Station> Ligne::getListe() const
 {
 	return d_liste;
 }
