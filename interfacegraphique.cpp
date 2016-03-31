@@ -30,7 +30,7 @@ void afficherLigneEtStation(const vector<Ligne> &ldl)
 
 void afficherTram(const ListeTrams &ldt)
 {
-	setcolor(0);
+	setcolor(WHITE);
 	ListeTrams tmp = ldt;
 	Station s1, s2;
 	int posX, posY;
@@ -41,10 +41,10 @@ void afficherTram(const ListeTrams &ldt)
 		dtram = tmp.tram()->getDistance();
 		dstation = s1.distance(s2);
 		
-		posX = dtram*(s2.getPosX()-s1.getPosY());
-		posY = dtram*(s2.getPosY()-s1.getPosY());
+		posX = dtram/dstation*s2.getPosX()+(1-dtram/dstation)*s1.getPosX();
+		posY = dtram/dstation*s2.getPosY()+(1-dtram/dstation)*s1.getPosY();
 		
-		rectangle(posX-5,posY-5,posX+5,posY+5);
+		rectangle(posX-10,posY-10,posX+10,posY+10);
 		
 		tmp.Next();
 	}
@@ -53,7 +53,7 @@ void afficherTram(const ListeTrams &ldt)
 void afficher(const vector<Ligne> &ldl, const ListeTrams &ldt)
 {
 	cleardevice();
-	setbkcolor(WHITE);
+	setbkcolor(BLACK);
 	afficherLigneEtStation(ldl);
 	afficherTram(ldt);
 }

@@ -160,6 +160,7 @@ void configSimulation(ListeTrams &ldt , const vector < Ligne > &ldl)
 	cout << "Indiquez une durée (en seconde):" << endl;
 	cin >> duree;
 	double clockActuel = clock() , clockIteration , deltaClock;
+	opengraphsize(1650,1000);
 	while( (clockActuel/1000) < duree )
 	{
 		clockIteration = clockActuel;

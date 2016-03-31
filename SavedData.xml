@@ -12,9 +12,9 @@
 		
 		<Ligne>
 			<liste>
-				<Station nom="Station5" posX="111" posY="111" tempsArret="5"/>
-				<Station nom="Station6" posX="222" posY="222" tempsArret="5"/>
-				<Station nom="Station7" posX="333" posY="333" tempsArret="5"/>
+				<Station nom="Station5" posX="100" posY="150" tempsArret="5"/>
+				<Station nom="Station6" posX="100" posY="300" tempsArret="5"/>
+				<Station nom="Station7" posX="100" posY="500" tempsArret="5"/>
 			</liste> 
 		</Ligne>
 	</listeLignes>
@@ -22,6 +22,6 @@
 	<listeTrams>
 		<Tram num="1" vitesse="20" distanceMini="50" direction="1" marche="0" ligne="1" station="0" />
 		<Tram num="2" vitesse="20" distanceMini="50" direction="0" marche="0" ligne="0" station="2" />
-		<Tram num="3" vitesse="20" distanceMini="50" direction="0" marche="0" ligne="0" station="1" />
+		<Tram num="3" vitesse="20" distanceMini="50" direction="1" marche="0" ligne="0" station="1" />
 	</listeTrams>	
 </Data>

@@ -4,6 +4,9 @@
 Station::Station():d_nom(""),posX(0),posY(0),tempsArret(0)
 {}
 
+Station::Station(string nom,int X,int Y,int tArret):d_nom(nom),posX(X),posY(Y),tempsArret(tArret)
+{}
+
 Station::Station(const Station &station)
 {
 	d_nom = station.getNom();

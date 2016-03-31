@@ -7,7 +7,7 @@ class Station
 {
 	public:
 		Station();
-		Station(string nom,int X,int Y,int tArret):d_nom(nom),posX(X),posY(Y),tempsArret(tArret){}
+		Station(string nom,int X,int Y,int tArret);
 		Station(const Station &station);
 		double distance(const Station &station) const;
 		
