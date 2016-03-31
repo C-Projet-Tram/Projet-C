@@ -13,18 +13,18 @@
 
 void afficherLigneEtStation(const vector<Ligne> &ldl) 
 {
-	Station s1,s2;
+	Station station1,station2;
 	for (unsigned int i = 0 ; i < ldl.size() ; i++) {
 		setcolor(i+1);
-		s1=s2;
+		station1=station2;
 		for (int j = 0 ; j < ldl[i].tailleTableau()-1 ; j++) {
-			s1 = ldl[i].getStation(j);
-			s2 = ldl[i].getStation(j+1);
-			circle(s1.getPosX(),s1.getPosY(),10);
-			line(s1.getPosX(),s1.getPosY(),s2.getPosX(),s2.getPosY());
+			station1 = ldl[i].getStation(j);
+			station2 = ldl[i].getStation(j+1);
+			circle(station1.getPosX(),station1.getPosY(),10);
+			line(station1.getPosX(),station1.getPosY(),station2.getPosX(),station2.getPosY());
 		}
-		s1 = ldl[i].getStation(ldl[i].tailleTableau()-1);
-		circle(s1.getPosX(),s1.getPosY(),10);
+		station1 = ldl[i].getStation(ldl[i].tailleTableau()-1);
+		circle(station1.getPosX(),station1.getPosY(),10);
 	}
 }
 
@@ -32,17 +32,19 @@ void afficherTram(const ListeTrams &ldt)
 {
 	setcolor(WHITE);
 	ListeTrams tmp = ldt;
-	Station s1, s2;
+	Station station1, station2;
 	int posX, posY;
-	double dtram , dstation;
+	double dtram , vecteurX , vecteurY;
 	while (tmp.tram()) {
-		s1 = tmp.tram()->getStation1();
-		s2 = tmp.tram()->getStation2();
+		station1 = tmp.tram()->getStation1();
+		station2 = tmp.tram()->getStation2();
 		dtram = tmp.tram()->getDistance();
-		dstation = s1.distance(s2);
 		
-		posX = dtram/dstation*s2.getPosX()+(1-dtram/dstation)*s1.getPosX();
-		posY = dtram/dstation*s2.getPosY()+(1-dtram/dstation)*s1.getPosY();
+		vecteurX = station2.getPosX()-station1.getPosX();
+		vecteurY = station2.getPosY()-station1.getPosY();
+		
+		posX = station1.getPosX()+dtram*vecteurX;
+		posY = station1.getPosY()+dtram*vecteurY;
 		
 		rectangle(posX-10,posY-10,posX+10,posY+10);
 		

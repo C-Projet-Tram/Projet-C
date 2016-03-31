@@ -161,15 +161,16 @@ void configSimulation(ListeTrams &ldt , const vector < Ligne > &ldl)
 	cin >> duree;
 	double clockActuel = clock() , clockIteration , deltaClock;
 	opengraphsize(1000,600);
+	ListeTrams tmp = ldt;
+	ListeTrams tmp2 = ldt;
 	while( (clockActuel/1000) < duree )
 	{
 		clockIteration = clockActuel;
 		deltaClock = clockActuel-clockIteration;
-		ListeTrams tmp = ldt;
 		while(tmp.tram())
 		{
 			//changer la distance des trams et vérifier s'il y a quelqu'un devant
-			tmp.tram()->verifToutTram(tmp.tram()->getSuivant());
+			tmp.tram()->verifToutTram(tmp2.tram());
 			tmp.tram()->tramAvance(deltaClock);
 			tmp.Next();
 		}
@@ -209,7 +210,9 @@ int main()
 			break;
 			
 			case 2:
-				{}
+				{
+					closegraph();
+				}
 			/* Je pose ça la, désolé. 
 			A la fin de la durée donné. Afficher une petite fenêtre pour demander si on veut quitter l'appli ou relancer la simu.
 			Donc soit on ferme tout, soit on remontre la 1ère fenêtre ?

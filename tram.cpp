@@ -11,11 +11,11 @@ Tram::Tram(const Tram *T2)
 	d_vitesse=T2->getVitesse();
 	distanceMinimum=T2->getDistanceMinimum();
 	distance=T2->getDistance();
-	S1=T2->getStation1();
-	S2=T2->getStation2();
+	station1=T2->getStation1();
+	station2=T2->getStation2();
 	d_direction=T2->getDirection();
 	d_marche=T2->getMarche();
-	L=T2->getLigne();
+	ligne=T2->getLigne();
 	suiv=T2->getSuivant();
 }
 
@@ -41,12 +41,12 @@ double Tram::getDistance() const
 
 Station Tram::getStation1() const
 {
-	return S1;
+	return station1;
 }
 
 Station Tram::getStation2() const
 {
-	return S2;
+	return station2;
 }
 
 bool Tram::getDirection() const
@@ -61,7 +61,7 @@ bool Tram::getMarche() const
 
 Ligne Tram::getLigne() const
 {
-	return L;
+	return ligne;
 }
 
 Tram *Tram::getSuivant() const
@@ -74,64 +74,65 @@ void Tram::verifToutTram(Tram *T2)
 	Tram *tmp=T2;
 	while(tmp)
 	{
-		verifDistanceMinimale(tmp);
-		tmp=tmp->suiv;
+		if (this != tmp)
+			verifDistanceMinimale(tmp);
+			tmp = tmp->suiv;
 	}
 }
 
 
 void Tram::verifDistanceMinimale(Tram *T2) 
 {
-	if (L==T2->L)
+	if (ligne == T2->ligne)
 	{
-		if (distance-T2->distance<distanceMinimum)
+		if (distance-T2->distance < distanceMinimum)
 		{
-			if (d_marche==1)
+			if (d_marche == 1)
 				enMarche();
 		}
-		else if (d_marche==0)
+		else if (d_marche == 0)
 			enMarche();
 	}
 }
 
 void Tram::tramAvance(double milisecondes)
 {
-	double pixels=milisecondes*d_vitesse/1000;
-	double pixelsTot=S1.distance(S2);
-	double distanceAjoutee=pixels/pixelsTot;
-	distance+=distanceAjoutee;
-	if (distance>1)
+	double pixels = milisecondes*d_vitesse/1000;
+	double pixelsTot = station1.distance(station2);
+	double distanceAjoutee = pixels/pixelsTot;
+	distance += distanceAjoutee;
+	if (distance > 1)
 	{
-		if (d_direction==true)
+		if (d_direction == true)
 		{
-			if (L.getListe()[L.tailleTableau()-1]==S2)
+			if (ligne.getListe()[ligne.tailleTableau()-1]==station2)
 			{
 				changeDirection();
-				Station Stmp=S2;
-				S2=S1;
-				S1=Stmp;
+				Station Stmp=station2;
+				station2=station1;
+				station1=Stmp;
 			}
 			else
 			{
-				S1=S2;
-				S2=L.stationSuivante(S2);
+				station1=station2;
+				station2=ligne.stationSuivante(station2);
 				distance=0;
 			}
 		}
 		else
 		{
-			if (L.getListe()[0]==S2)
+			if (ligne.getListe()[0]==station2)
 			{
 				changeDirection();
-				Station Stmp=S2;
-				S2=S1;
-				S1=Stmp;
+				Station Stmp=station2;
+				station2=station1;
+				station1=Stmp;
 			}
 			else
 			{
-				S2=S1;
-				S1=L.stationPrecedente(S1);
-				distance=0;
+				station2 = station1;
+				station1 = ligne.stationPrecedente(station1);
+				distance = 0;
 			}
 		}
 	}
@@ -139,7 +140,7 @@ void Tram::tramAvance(double milisecondes)
 
 void Tram::changeDirection()
 {
-	d_direction=!d_direction;
+	d_direction = !d_direction;
 }
 
 
@@ -155,11 +156,11 @@ Tram Tram::operator=(Tram T)
 	d_num=T.d_num;
 	d_vitesse=T.d_vitesse;
 	distance=T.distance;
-	S1=T.S1;
-	S2=T.S2;
+	station1=T.station1;
+	station2=T.station2;
 	d_direction=T.d_direction;
 	d_marche=T.d_marche;
-	L=T.L;
+	ligne=T.ligne;
 	suiv=T.suiv;
 	return *this;
 }
