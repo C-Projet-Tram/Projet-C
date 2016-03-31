@@ -2,21 +2,30 @@
 
 void Tram::enMarche()
 {
-	d_marche=!d_marche;
+	d_marche = !d_marche;
 }
 
-Tram::Tram(const Tram *T2)
+Tram::Tram(const Tram *tram)
 {
-	d_num=T2->getNum();
-	d_vitesse=T2->getVitesse();
-	distanceMinimum=T2->getDistanceMinimum();
-	distance=T2->getDistance();
-	station1=T2->getStation1();
-	station2=T2->getStation2();
-	d_direction=T2->getDirection();
-	d_marche=T2->getMarche();
-	ligne=T2->getLigne();
-	suiv=T2->getSuivant();
+	d_num=tram->d_num;
+	d_vitesse=tram->d_vitesse;
+	distanceMinimum=tram->distanceMinimum;
+	distance=tram->distance;
+	station1=tram->station1;
+	station2=tram->station2;
+	d_direction=tram->d_direction;
+	d_marche=tram->d_marche;
+	ligne=tram->ligne;
+	suiv=tram->suiv;
+}
+
+Tram::Tram():d_num(0),d_vitesse(30),distanceMinimum(75),distance(0),d_direction(1),d_marche(0),suiv(0)
+{}
+
+Tram::Tram(int num,int vitesse,int dMini,bool direction,bool marche,Ligne ligne,Station station1):
+	d_num(num),d_vitesse(vitesse),distanceMinimum(dMini),distance(0),d_direction(direction),d_marche(marche),ligne(ligne),station1(station1),suiv(0)
+{
+	initialiseStation2();
 }
 
 int Tram::getNum() const
@@ -69,9 +78,9 @@ Tram *Tram::getSuivant() const
 	return suiv;
 }
 
-void Tram::verifToutTram(Tram *T2)
+void Tram::verifToutTram(Tram *tram)
 {
-	Tram *tmp=T2;
+	Tram *tmp=tram;
 	while(tmp)
 	{
 		if (this != tmp)
@@ -80,12 +89,11 @@ void Tram::verifToutTram(Tram *T2)
 	}
 }
 
-
-void Tram::verifDistanceMinimale(Tram *T2) 
+void Tram::verifDistanceMinimale(Tram *tram) 
 {
-	if (ligne == T2->ligne)
+	if (ligne == tram->ligne)
 	{
-		if (distance-T2->distance < distanceMinimum)
+		if (abs(distance-tram->distance) < distanceMinimum)
 		{
 			if (d_marche == 1)
 				enMarche();

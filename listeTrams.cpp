@@ -35,7 +35,7 @@ void ListeTrams::ajouter(int num,int vitesse,int dMini,Station station1,bool dir
 	//Cas chaînon vide
 	if(t == 0)
 	{
-		t= new Tram(num,vitesse,dMini,direction,marche,ligne,station1);
+		t = new Tram(num,vitesse,dMini,direction,marche,ligne,station1);
 		return;
 	} 
 	//Cas tête
@@ -48,10 +48,10 @@ void ListeTrams::ajouter(int num,int vitesse,int dMini,Station station1,bool dir
 	}
 	//Le reste 
 	Tram *t0 = 0, *t1=t;
-	while(t1!=0 && t1->d_num < num)
+	while(t1 != 0 && t1->d_num < num)
 	{
-		t0=t1;
-		t1=t1->suiv;
+		t0 = t1;
+		t1 = t1->suiv;
 	}
 	
 	Tram *t = new Tram(num,vitesse,dMini,direction,marche,ligne,station1);

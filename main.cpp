@@ -176,10 +176,9 @@ void configSimulation(ListeTrams &ldt , const vector < Ligne > &ldl)
 		}
 		afficher(ldl,ldt);
 		clockActuel = clock();
+		cout << clockActuel << endl;
 	}
 }
-
-
 
 int main()
 {
@@ -211,7 +210,6 @@ int main()
 			
 			case 2:
 				{
-					closegraph();
 				}
 			/* Je pose ça la, désolé. 
 			A la fin de la durée donné. Afficher une petite fenêtre pour demander si on veut quitter l'appli ou relancer la simu.
