@@ -119,7 +119,7 @@ void loadData()
 				tram->QueryIntAttribute("station", &numStation);
 				//Creation de la station par recopie
 				Station station(ldl[ligne].getStation(numStation));
-				cout << "\tStation : " << station.nom() << endl;
+				cout << "\tStation : " << station.getNom() << endl;
 				
 				bool direction = direct;
 				bool marche = marche;
@@ -153,7 +153,7 @@ void affichageSimulation()
 
 }
 */
-void configSimulation(ListeTrams &ldt,const vector <Ligne> &ldl)
+void configSimulation(ListeTrams &ldt)
 {
 	ListeTrams lt;//need changer les params de base
 	long tempsDepart=time(0),tempsActuel=tempsDepart,tempsIteration=tempsDepart;
@@ -206,7 +206,7 @@ int main()
 			case 1:
 				loadData();
 				cout << ldt.taille();
-				configSimulation(ldt,ldl);
+				configSimulation(ldt);
 								
 				system("pause");
 				system("cls");

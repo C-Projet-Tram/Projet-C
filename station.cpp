@@ -17,27 +17,44 @@ double Station::distance(const Station &S) const
   return sqrt((X*X)+(Y*Y));
 }
 
-string Station::nom()
+string Station::getNom() const
 {
 	return d_nom;
 }
 
+int Station::getPosX() const
+{
+	return posX;
+}
+
+int Station::getPosY() const
+{
+	return posY;
+}
+
+int Station::getTempsArret() const
+{
+	return tempsArret;
+}
+
 bool Station::operator!=(const Station &S) const
 {
-	if (this==&S) return false;
-	if (posX==S.posX)
-		if (posY==S.posY)
-			if (tempsArret==S.tempsArret)
-				return false;
+	if (this == &S) return false;
+	if (d_nom == S.d_nom)
+		if (posX == S.posX)
+			if (posY == S.posY)
+				if (tempsArret==S.tempsArret)
+					return false;
 	return true;
 }
 
 bool Station::operator==(const Station &S) const
 {
-	if (this==&S) return true;
-	if (posX==S.posX)
-		if (posY==S.posY)
-			if (tempsArret==S.tempsArret)
+	if (this == &S) return true;
+	if (d_nom == S.d_nom)
+		if (posX == S.posX)
+			if (posY == S.posY)
+				if (tempsArret == S.tempsArret)
 				return true;
 	return false;
 }

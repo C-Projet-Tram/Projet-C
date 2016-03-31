@@ -10,7 +10,12 @@ class Station
 		Station(string nom,int X,int Y,int tArret):d_nom(nom),posX(X),posY(Y),tempsArret(tArret){}
 		Station(const Station &s);
 		double distance(const Station &S) const;
-		string nom();
+		
+		string getNom() const;
+		int getPosX() const;
+		int getPosY() const;
+		int getTempsArret() const;
+		
 		bool operator!=(const Station &S) const;
 		bool operator==(const Station &S) const;
 	private:
