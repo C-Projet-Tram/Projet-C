@@ -8,7 +8,7 @@ void Ligne::ajouter(const Station &S)
 	d_liste.push_back(S);
 }
 
-Station Ligne::getStation(int i)
+Station Ligne::getStation(int i) const
 {
 	return d_liste[i];
 }

@@ -17,7 +17,7 @@ class Ligne
 		
 		int tailleTableau() const;
 		vector <Station> getListe() const;
-		Station getStation(int i);
+		Station getStation(int i) const;
 		
 		bool operator==(const Ligne &L) const;
 	private:

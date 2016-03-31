@@ -6,6 +6,7 @@
 #include "listeTrams.h"
 #include "tinyxml.h"
 #include "graphics.h"
+#include "interfacegraphique.h"
 
 using namespace std;
 
@@ -153,9 +154,8 @@ void affichageSimulation()
 
 }
 */
-void configSimulation(ListeTrams &ldt)
+void configSimulation(ListeTrams &ldt , const vector < Ligne > &ldl)
 {
-	ListeTrams lt;//need changer les params de base
 	double duree;
 	cout << "Indiquez une durée (en seconde):" << endl;
 	cin >> duree;
@@ -172,9 +172,8 @@ void configSimulation(ListeTrams &ldt)
 			tmp.tram()->tramAvance(deltaClock);
 			tmp.Next();
 		}
+			afficher(ldl,ldt);
 		clockActuel = clock();
-		//deltaClock=deltaClock/CLOCKS_PER_SEC;
-		cout << deltaClock << endl;
 	}
 }
 
@@ -202,7 +201,7 @@ int main()
 			case 1:
 				loadData();
 				cout << ldt.taille();
-				configSimulation(ldt);
+				configSimulation(ldt,ldl);
 								
 				system("pause");
 				system("cls");

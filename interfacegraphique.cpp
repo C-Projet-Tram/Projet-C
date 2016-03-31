@@ -11,9 +11,10 @@
 //void rectangle (int left, int top, int right, int bottom)
 */
 
-void afficherLigneEtStation(vector<Ligne> ldl) {
+void afficherLigneEtStation(const vector<Ligne> &ldl) 
+{
 	Station s1,s2;
-	for (int i = 0 ; i < ldl.size() ; i++) {
+	for (unsigned int i = 0 ; i < ldl.size() ; i++) {
 		setcolor(i+1);
 		s1=s2;
 		for (int j = 0 ; j < ldl[i].tailleTableau()-1 ; j++) {
@@ -27,12 +28,13 @@ void afficherLigneEtStation(vector<Ligne> ldl) {
 	}
 }
 
-void afficherTram(const ListeTrams &ldt) {
+void afficherTram(const ListeTrams &ldt)
+{
 	setcolor(0);
 	ListeTrams tmp = ldt;
 	Station s1, s2;
 	int posX, posY;
-	double dtram, dstation;
+	double dtram , dstation;
 	while (tmp.tram()) {
 		s1 = tmp.tram()->getStation1();
 		s2 = tmp.tram()->getStation2();
@@ -48,7 +50,8 @@ void afficherTram(const ListeTrams &ldt) {
 	}
 }
 
-void afficher(vector<Ligne> ldl, const ListeTrams &ldt) {
+void afficher(const vector<Ligne> &ldl, const ListeTrams &ldt)
+{
 	cleardevice();
 	setbkcolor(WHITE);
 	afficherLigneEtStation(ldl);

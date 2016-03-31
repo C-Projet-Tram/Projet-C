@@ -32,7 +32,7 @@ CompilerSettings=0000000000000000001000000
 <<<<<<< HEAD
 UnitCount=17
 =======
-UnitCount=18
+UnitCount=19
 >>>>>>> origin/master
 
 [VersionInfo]
@@ -238,6 +238,16 @@ BuildCmd=
 
 [Unit18]
 FileName=interfacegraphique.cpp
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit19]
+FileName=interfacegraphique.h
 CompileCpp=1
 Folder=
 Compile=1
