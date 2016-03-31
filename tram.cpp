@@ -7,21 +7,71 @@ void Tram::enMarche()
 
 Tram::Tram(const Tram *T2)
 {
-	d_num=T2->d_num;
-	d_vitesse=T2->d_vitesse;
-	distanceMinimum=T2->distanceMinimum;
-	distance=T2->distance;
-	S1=T2->S1;
-	S2=T2->S2;
-	d_direction=T2->d_direction;
-	d_marche=T2->d_marche;
-	L=T2->L;
-	suiv=T2->suiv;
+	d_num=T2->getNum();
+	d_vitesse=T2->getVitesse();
+	distanceMinimum=T2->getDistanceMinimum();
+	distance=T2->getDistance();
+	S1=T2->getStation1();
+	S2=T2->getStation2();
+	d_direction=T2->getDirection();
+	d_marche=T2->getMarche();
+	L=T2->getLigne();
+	suiv=T2->getSuivant();
 }
 
-void Tram::verifToutTram(const Tram *T2)
+int Tram::getNum() const
 {
-	Tram *tmp=new Tram(T2);
+	return d_num;
+}
+
+int Tram::getVitesse() const
+{
+	return d_vitesse;
+}
+
+int Tram::getDistanceMinimum() const
+{
+	return distanceMinimum;
+}
+
+double Tram::getDistance() const
+{
+	return distance;
+}
+
+Station Tram::getStation1() const
+{
+	return S1;
+}
+
+Station Tram::getStation2() const
+{
+	return S2;
+}
+
+bool Tram::getDirection() const
+{
+	return d_direction;
+}
+
+bool Tram::getMarche() const
+{
+	return d_marche;
+}
+
+Ligne Tram::getLigne() const
+{
+	return L;
+}
+
+Tram *Tram::getSuivant() const
+{
+	return suiv;
+}
+
+void Tram::verifToutTram(Tram *T2)
+{
+	Tram *tmp=T2;
 	while(tmp)
 	{
 		verifDistanceMinimale(tmp);
@@ -30,7 +80,7 @@ void Tram::verifToutTram(const Tram *T2)
 }
 
 
-void Tram::verifDistanceMinimale(const Tram *T2)
+void Tram::verifDistanceMinimale(Tram *T2)
 {
 	if (L==T2->L)
 	{
@@ -87,16 +137,16 @@ void Tram::tramAvance(double milisecondes)
 	}
 }
 
-Tram *Tram::suivant()
-{
-	return suiv;
-}
-
 void Tram::changeDirection()
 {
 	d_direction=!d_direction;
 }
 
+
+Tram *Tram::getSuivant()
+{
+	return suiv;
+}
 
 /*
 Tram Tram::operator=(Tram T)
