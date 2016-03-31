@@ -2,13 +2,13 @@
 <<<<<<< HEAD
 Order=0,8,7,6,5,4,3,2,1
 <<<<<<< HEAD
-Focused=0
+Focused=1
 [Editor_0]
 <<<<<<< HEAD
 <<<<<<< HEAD
-CursorCol=5
-CursorRow=129
-TopLine=102
+CursorCol=20
+CursorRow=172
+TopLine=147
 =======
 <<<<<<< HEAD
 CursorCol=79
@@ -60,7 +60,7 @@ LeftChar=1
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
-CursorCol=11
+CursorCol=2
 CursorRow=73
 TopLine=67
 =======
@@ -70,7 +70,7 @@ CursorRow=107
 TopLine=91
 LeftChar=1
 [Editor_3]
-CursorCol=107
+CursorCol=100
 CursorRow=12
 =======
 CursorCol=11
@@ -105,7 +105,7 @@ LeftChar=1
 [Editor_4]
 <<<<<<< HEAD
 <<<<<<< HEAD
-CursorCol=64
+CursorCol=11
 =======
 <<<<<<< HEAD
 CursorCol=11
