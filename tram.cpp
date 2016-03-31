@@ -7,7 +7,6 @@ void Tram::enMarche()
 
 Tram::Tram(const Tram *tram)
 {
-<<<<<<< HEAD
 	d_num=tram->d_num;
 	d_vitesse=tram->d_vitesse;
 	distanceMinimum=tram->distanceMinimum;
@@ -27,18 +26,6 @@ Tram::Tram(int num,int vitesse,int dMini,bool direction,bool marche,Ligne ligne,
 	d_num(num),d_vitesse(vitesse),distanceMinimum(dMini),distance(0),d_direction(direction),d_marche(marche),ligne(ligne),station1(station1),suiv(0)
 {
 	initialiseStation2();
-=======
-	d_num=T2->d_num;
-	d_vitesse=T2->d_num;
-	distanceMinimum=T2->distanceMinimum;
-	distance=T2->distance;
-	station1=T2->station1;
-	station2=T2->station2;
-	d_direction=T2->d_direction;
-	d_marche=T2->d_marche;
-	ligne=T2->ligne;
-	suiv=T2->suiv;
->>>>>>> origin/master
 }
 
 int Tram::getNum() const
