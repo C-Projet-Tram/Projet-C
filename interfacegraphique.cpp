@@ -14,10 +14,15 @@
 void afficherLigneEtStation(vector<Ligne> ldl) {
 	Station s1,s2;
 	for (int i = 0 ; i < ldl.size() ; i++) {
-		setcolor(i);
-		for (int j = 0 ; j < ldl[i].tailleTableau() ; j++) {
+		setcolor(i+1);
+		s1=s2;
+		for (int j = 0 ; j < ldl[i].tailleTableau()-1 ; j++) {
 			s1 = ldl[i].getStation(j);
-			circle()
+			s2 = ldl[i].getStation(j+1);
+			circle(s1.getPosX(),s1.getPosY(),10);
+			line(s1.getPosX(),s1.getPosY(),s2.getPosX(),s2.getPosY());
 		}
+		s1 = ldl[i].getStation(ldl[i].tailleTableau()-1);
+		circle(s1.getPosX(),s1.getPosY(),10);
 	}
 }
