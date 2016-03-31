@@ -156,29 +156,25 @@ void affichageSimulation()
 void configSimulation(ListeTrams &ldt)
 {
 	ListeTrams lt;//need changer les params de base
-	long tempsDepart=time(0),tempsActuel=tempsDepart,tempsIteration=tempsDepart;
-	double duree,deltaT;
-	cout<<"Indiquez une durée (en seconde):"<<endl;
-	cin>>duree;
-	long clockActuel=clock(),clockIteration,deltaClock;
-	while(difftime(tempsActuel,tempsDepart)<duree)
+	double duree;
+	cout << "Indiquez une durée (en seconde):" << endl;
+	cin >> duree;
+	double clockActuel = clock() , clockIteration , deltaClock;
+	while( (clockActuel/1000) < duree )
 	{
-		clockIteration=clockActuel;
-		tempsIteration=tempsActuel;
-		tempsActuel=time(0);
-		deltaT=difftime(tempsActuel,tempsIteration);
-		ListeTrams tmp=ldt;
+		clockIteration = clockActuel;
+		deltaClock = clockActuel-clockIteration;
+		ListeTrams tmp = ldt;
 		while(tmp.tram())
 		{
 			//changer la distance des trams et vérifier s'il y a quelqu'un devant
 			tmp.tram()->verifToutTram(tmp.tram()->getSuivant());
-			tmp.tram()->tramAvance(deltaT);
+			tmp.tram()->tramAvance(deltaClock);
 			tmp.Next();
 		}
-		clockActuel=clock();
-		deltaClock=clockActuel-clockIteration;
+		clockActuel = clock();
 		//deltaClock=deltaClock/CLOCKS_PER_SEC;
-		cout<<deltaClock<<endl;
+		cout << deltaClock << endl;
 	}
 }
 

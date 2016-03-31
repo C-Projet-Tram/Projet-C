@@ -1,19 +1,20 @@
 #include "station.h"
 #include <cmath>
+
 Station::Station():d_nom(""),posX(0),posY(0),tempsArret(0)
 {}
 
-Station::Station(const Station &s)
+Station::Station(const Station &station)
 {
-	d_nom=s.d_nom;
-	posX=s.posX;
-	posY=s.posY;
-	tempsArret=s.tempsArret;
+	d_nom = station.getNom();
+	posX = station.getPosX();
+	posY = station.getPosY();
+	tempsArret = station.getTempsArret();
 }
 
-double Station::distance(const Station &S) const
+double Station::distance(const Station &station) const
 {
-  int X=S.posX-posX,Y=S.posY-posY; 
+  int X = station.posX-posX, Y = station.posY-posY; 
   return sqrt((X*X)+(Y*Y));
 }
 

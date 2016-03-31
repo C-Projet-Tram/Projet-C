@@ -8,8 +8,8 @@ class Station
 	public:
 		Station();
 		Station(string nom,int X,int Y,int tArret):d_nom(nom),posX(X),posY(Y),tempsArret(tArret){}
-		Station(const Station &s);
-		double distance(const Station &S) const;
+		Station(const Station &station);
+		double distance(const Station &station) const;
 		
 		string getNom() const;
 		int getPosX() const;
