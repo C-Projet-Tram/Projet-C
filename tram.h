@@ -7,8 +7,10 @@ class Tram
 {
 	friend class ListeTrams;
 	public:
+		Tram(const Tram *T2);
 		void enMarche();
 		void verifDistanceMinimale(const Tram *T2);
+		void verifToutTram(const Tram *T2);
 		void tramAvance(double milisecondes);
 		void changeDirection();
 		Tram *suivant();
@@ -36,7 +38,7 @@ class Tram
 		bool d_direction;
 		bool d_marche;
 		Ligne L;
-		Tram *suiv; 
+		Tram *suiv;
 };
 
 #endif

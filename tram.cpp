@@ -5,6 +5,31 @@ void Tram::enMarche()
 	d_marche=!d_marche;
 }
 
+Tram::Tram(const Tram *T2)
+{
+	d_num=T2->d_num;
+	d_vitesse=T2->d_vitesse;
+	distanceMinimum=T2->distanceMinimum;
+	distance=T2->distance;
+	S1=T2->S1;
+	S2=T2->S2;
+	d_direction=T2->d_direction;
+	d_marche=T2->d_marche;
+	L=T2->L;
+	suiv=T2->suiv;
+}
+
+void Tram::verifToutTram(const Tram *T2)
+{
+	Tram *tmp=new Tram(T2);
+	while(tmp)
+	{
+		verifDistanceMinimale(tmp);
+		tmp=tmp->suiv;
+	}
+}
+
+
 void Tram::verifDistanceMinimale(const Tram *T2)
 {
 	if (L==T2->L)
