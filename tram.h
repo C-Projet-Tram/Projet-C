@@ -20,7 +20,7 @@ class Tram
 		int getDistanceMinimum() const;
 		double getDistance() const;
 		Station getStation1() const;
-		Station getStation2() const;
+		Station getStation2() const; 
 		bool getDirection() const;
 		bool getMarche() const;
 		Ligne getLigne() const;

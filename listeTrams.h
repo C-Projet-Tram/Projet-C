@@ -15,7 +15,7 @@ class ListeTrams
 		/*
 		Tram *operator=(const Tram *T);
 		void enleverTram(Tram T);
-		ListeTrams operator+=(Tram T);
+		ListeTrams operator+=(Tram T); 
 		ListeTrams operator+=(ListeTrams T);
 		*/
 	private:
