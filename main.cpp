@@ -53,7 +53,6 @@ void loadData()
 			while (ligne){
 		
 				//Assignation des donnees XML a des variables
-				int num;
 				Ligne l;
 				cout << "Ligne : " << endl;
 				
@@ -138,7 +137,7 @@ void loadData()
 	}
 		
 }
-
+/*
 void affichageSimulation()
 {
 	//A REMPLIR
@@ -153,7 +152,7 @@ void affichageSimulation()
 	closegraph();
 
 }
-
+*/
 void configSimulation(ListeTrams &ldt,const vector <Ligne> &ldl)
 {
 	ListeTrams lt;//need changer les params de base

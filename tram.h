@@ -46,10 +46,10 @@ class Tram
 		int d_vitesse;
 		int distanceMinimum;
 		double distance;
-		Station S1,S2;
 		bool d_direction;
 		bool d_marche;
 		Ligne L;
+		Station S1,S2;
 		Tram *suiv;
 };
 

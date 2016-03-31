@@ -2,6 +2,7 @@
 #define LIGNE_H
 #include "station.h"
 #include <vector>
+#include <cmath>
 
 using namespace std;
 
