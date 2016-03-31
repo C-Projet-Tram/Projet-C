@@ -103,30 +103,32 @@ void Tram::tramAvance(double milisecondes)
 	distance += distanceAjoutee;
 	if (distance > 1)
 	{
-		if (d_direction == true)
+		if (d_direction)
 		{
-			if (ligne.getListe()[ligne.tailleTableau()-1]==station2)
+			if (ligne.getListe()[ligne.tailleTableau()-1] == station2)
 			{
 				changeDirection();
-				Station Stmp=station2;
-				station2=station1;
-				station1=Stmp;
+				Station Stmp = station2;
+				station2 = station1;
+				station1 = Stmp;
+				distance = 0;
 			}
 			else
 			{
-				station1=station2;
-				station2=ligne.stationSuivante(station2);
-				distance=0;
+				station1 = station2;
+				station2 = ligne.stationSuivante(station2);
+				distance = 0;
 			}
 		}
 		else
 		{
-			if (ligne.getListe()[0]==station2)
+			if (ligne.getListe()[0] == station2)
 			{
 				changeDirection();
-				Station Stmp=station2;
-				station2=station1;
-				station1=Stmp;
+				Station Stmp = station2;
+				station2 = station1;
+				station1 = Stmp;
+				distance = 0;
 			}
 			else
 			{
@@ -136,6 +138,14 @@ void Tram::tramAvance(double milisecondes)
 			}
 		}
 	}
+}
+
+void Tram::initialiseStation2()
+{
+	if (d_direction)
+		station2 = ligne.stationSuivante(station1);
+	else
+		station2 = ligne.stationPrecedente(station1);
 }
 
 void Tram::changeDirection()

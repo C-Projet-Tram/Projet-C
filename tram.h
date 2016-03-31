@@ -13,6 +13,7 @@ class Tram
 		void verifToutTram(Tram *T2);
 		void tramAvance(double milisecondes);
 		void changeDirection();
+		void initialiseStation2();
 		
 		
 		int getNum() const;
@@ -36,10 +37,7 @@ class Tram
 		Tram(int num,int vitesse,int dMini,bool direction,bool marche,Ligne ligne,Station station1):
 		d_num(num),d_vitesse(vitesse),distanceMinimum(dMini),distance(0),d_direction(direction),d_marche(marche),ligne(ligne),station1(station1),suiv(0)
 		{
-				if (direction==1)
-					station2=ligne.stationSuivante(station1);
-				else
-					station2=ligne.stationPrecedente(station1);
+			initialiseStation2();
 		}
 		
 		int d_num;
