@@ -14,7 +14,7 @@ class Station
 		bool operator!=(const Station &S) const;
 		bool operator==(const Station &S) const;
 	private:
-		string d_nom;
+		string d_nom; 
 		int posX,posY;
 		int tempsArret;
 };

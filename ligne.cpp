@@ -20,7 +20,7 @@ Station Ligne::stationSuivante(const Station &S) const
 	if (d_liste[i]==S)
 		return d_liste[i+1];
 }
-
+ 
 Station Ligne::stationPrecedente(const Station &S) const
 {
 	int i;

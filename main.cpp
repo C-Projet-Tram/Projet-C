@@ -129,7 +129,7 @@ void loadData()
 				
 				
 				//Ajout a la liste chainee de trams
-				ldt.ajouter(num,vitesse,distanceMini,station,direction,marche,ldl[ligne]);
+				ldt.ajouter(num,vitesse,distanceMini,station,direction,marche,ldl[ligne]); 
 				
 				//Iteration 
 				tram = tram->NextSiblingElement(); 

@@ -37,7 +37,7 @@ void ListeTrams::ajouter(int num,int vitesse,int dMini,Station S1,bool direction
 	{
 		t= new Tram(num,vitesse,dMini,direction,marche,L,S1);
 		return;
-	}
+	} 
 	//Cas tête
 	if(num < t->d_num)
 	{

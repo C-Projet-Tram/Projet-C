@@ -13,7 +13,7 @@ Station::Station(const Station &s)
 
 double Station::distance(const Station &S) const
 {
-  int X=S.posX-posX,Y=S.posY-posY;
+  int X=S.posX-posX,Y=S.posY-posY; 
   return sqrt((X*X)+(Y*Y));
 }
 

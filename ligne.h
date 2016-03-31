@@ -11,7 +11,7 @@ class Ligne
 		Ligne();
 		//Ligne(vector<Station> liste):d_liste(liste){}
 		void ajouter(const Station &S);
-		Station stationSuivante(const Station &S) const;
+		Station stationSuivante(const Station &S) const; 
 		Station stationPrecedente(const Station &S) const;
 		
 		int tailleTableau() const;

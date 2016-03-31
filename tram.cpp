@@ -80,7 +80,7 @@ void Tram::verifToutTram(Tram *T2)
 }
 
 
-void Tram::verifDistanceMinimale(Tram *T2)
+void Tram::verifDistanceMinimale(Tram *T2) 
 {
 	if (L==T2->L)
 	{
