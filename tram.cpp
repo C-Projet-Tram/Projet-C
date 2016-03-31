@@ -7,16 +7,16 @@ void Tram::enMarche()
 
 Tram::Tram(const Tram *T2)
 {
-	d_num=T2->getNum();
-	d_vitesse=T2->getVitesse();
-	distanceMinimum=T2->getDistanceMinimum();
-	distance=T2->getDistance();
-	station1=T2->getStation1();
-	station2=T2->getStation2();
-	d_direction=T2->getDirection();
-	d_marche=T2->getMarche();
-	ligne=T2->getLigne();
-	suiv=T2->getSuivant();
+	d_num=T2->d_num;
+	d_vitesse=T2->d_num;
+	distanceMinimum=T2->distanceMinimum;
+	distance=T2->distance;
+	station1=T2->station1;
+	station2=T2->station2;
+	d_direction=T2->d_direction;
+	d_marche=T2->d_marche;
+	ligne=T2->ligne;
+	suiv=T2->suiv;
 }
 
 int Tram::getNum() const
