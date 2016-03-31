@@ -2,7 +2,7 @@
 <<<<<<< HEAD
 Order=0,8,7,6,5,4,3,2,1
 <<<<<<< HEAD
-Focused=1
+Focused=2
 [Editor_0]
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -60,7 +60,11 @@ LeftChar=1
 [Editor_1]
 CursorCol=26
 CursorRow=25
+<<<<<<< HEAD
 TopLine=3
+=======
+TopLine=18
+>>>>>>> origin/master
 LeftChar=1
 [Editor_2]
 <<<<<<< HEAD
