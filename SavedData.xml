@@ -1,17 +1,26 @@
 <Data>
-	<listeStations>
-		<Station posX="100" posY="100" tempsArret="5"/>
-		<Station posX="200" posY="200" tempsArret="5"/>
-		<Station posX="300" posY="300" tempsArret="5"/>
-		<Station posX="400" posY="400" tempsArret="5"/>
-	</listeStations>
-	
+
 	<listeLignes>
-		<Ligne liste="0" />
+		<Ligne>
+			<liste>
+				<Station nom="Station1" posX="100" posY="100" tempsArret="5"/>
+				<Station nom="Station2" posX="200" posY="200" tempsArret="5"/>
+				<Station nom="Station3" posX="300" posY="300" tempsArret="5"/>
+				<Station nom="Station4" posX="400" posY="400" tempsArret="5"/>
+			</liste> 
+		</Ligne>
+		
+		<Ligne>
+			<liste>
+				<Station nom="Station5" posX="111" posY="111" tempsArret="5"/>
+				<Station nom="Station6" posX="222" posY="222" tempsArret="5"/>
+				<Station nom="Station7" posX="333" posY="333" tempsArret="5"/>
+			</liste> 
+		</Ligne>
 	</listeLignes>
 	
 	<listeTrams>
-		<Tram num="1" vitesse="20" distanceMini="50" direction="1" marche="0" ligne="0" station="0" />
+		<Tram num="1" vitesse="20" distanceMini="50" direction="1" marche="0" ligne="1" station="0" />
 		<Tram num="2" vitesse="20" distanceMini="50" direction="0" marche="0" ligne="0" station="2" />
 		<Tram num="3" vitesse="20" distanceMini="50" direction="0" marche="0" ligne="0" station="1" />
 	</listeTrams>	

@@ -12,7 +12,6 @@ using namespace std;
 //Definition des variables
 ListeTrams ldt;
 vector<Ligne> ldl;
-vector<Station> lds;
 
 void loadData()
 {
@@ -44,34 +43,7 @@ void loadData()
     	string elemName = elem->Value();
     	cout << "Element a charger : " << elemName << endl;
     	
-    	if(elemName=="listeStations")
-    	{
-    		TiXmlElement *station = elem->FirstChildElement();
-			if(!station){
-				cout << "Erreur, pas de station !" << endl;
-			}
-			
-			while (station)
-			{
-		
-				//Assignation des donnees XML a des variables
-				int posX,posY,tempsArret;
-				
-				station->QueryIntAttribute("posX", &posX);
-				cout << "Station en (" << posX << ",";
-				station->QueryIntAttribute("posY", &posY);
-				cout <<  posY << ") : "<< endl;
-				station->QueryIntAttribute("tempsArret", &tempsArret);
-				cout << "\tTemps d'arret : " << tempsArret << endl;
-				
-				
-				Station s(posX,posY,tempsArret);
-				lds.push_back(s);
-				//Iteration 
-				station = station->NextSiblingElement();
-			}
-		}
-		else if(elemName=="listeLignes")
+		if(elemName=="listeLignes")
 		{
 			TiXmlElement *ligne = elem->FirstChildElement();
 			if(!ligne){
@@ -82,11 +54,39 @@ void loadData()
 		
 				//Assignation des donnees XML a des variables
 				int num;
+				Ligne l;
+				cout << "Ligne : " << endl;
 				
-				ligne->QueryIntAttribute("liste", &num);
-				cout << "Ligne numero " << num << endl;
+								
+	    		TiXmlElement *station = ligne->FirstChildElement()->FirstChildElement();
+				if(!station){
+					cout << "Erreur, pas de station !" << endl;
+				}
 				
-				Ligne l(lds);
+				while (station)
+				{
+			
+					//Assignation des donnees XML a des variables
+					int posX,posY,tempsArret;
+					string nom;
+					
+					nom = station->Attribute("nom");
+					cout << "\tStation " << nom << ",";
+					station->QueryIntAttribute("posX", &posX);
+					cout << "se trouvant en (" << posX << ",";
+					station->QueryIntAttribute("posY", &posY);
+					cout <<  posY << ") : "<< endl;
+					station->QueryIntAttribute("tempsArret", &tempsArret);
+					cout << "\t\tTemps d'arret : " << tempsArret << endl;
+					
+					//Creation et ajout de la station
+					Station s(nom,posX,posY,tempsArret);
+					l.ajouter(s);
+					//Iteration 
+					station = station->NextSiblingElement();
+				}
+				
+				//Ajout de la ligne � la liste de lignes
 				ldl.push_back(l);
 				//Iteration 
 				ligne = ligne->NextSiblingElement(); 
@@ -102,8 +102,7 @@ void loadData()
 			while (tram){
 		
 				//Assignation des donnees XML a des variables
-				int num,vitesse,distanceMini,direct,mar,ligne,station;
-				
+				int num,vitesse,distanceMini,direct,mar,ligne,numStation;
 				
 				tram->QueryIntAttribute("num", &num);
 				cout << "Tram numero " << num << endl;
@@ -117,14 +116,17 @@ void loadData()
 				cout << "\tMarche : " << mar << endl;
 				tram->QueryIntAttribute("ligne", &ligne);
 				cout << "\tLigne : " << ligne << endl;
-				tram->QueryIntAttribute("station", &station);
-				cout << "\tStation : " << station << endl;
+				
+				tram->QueryIntAttribute("station", &numStation);
+				//Creation de la station par recopie
+				Station station(ldl[ligne].getStation(numStation));
+				cout << "\tStation : " << station.nom() << endl;
 				
 				bool direction = direct;
 				bool marche = marche;
 				
-				//Ajout à la liste chainee de trams
-				ldt.ajouter(num,vitesse,distanceMini,lds[station],direction,marche,ldl[ligne]);
+				//Ajout a la liste chainee de trams
+				ldt.ajouter(num,vitesse,distanceMini,station,direction,marche,ldl[ligne]);
 				
 				//Iteration 
 				tram = tram->NextSiblingElement(); 
@@ -132,31 +134,6 @@ void loadData()
 		}
 	}
 		
-	/*
-	
-	while (tram){
-		
-		//Assignation des données XML à des variables
-		int num,dData,mData;
-		bool direction;
-		bool marche;
-		
-		tram->QueryIntAttribute("num", &num);
-		tram->QueryIntAttribute("direction", &dData);
-		tram->QueryIntAttribute("marche", &mData);
-		
-		//Conversion des valeurs int en boolean			
-		direction = dData;
-		marche = mData;
-		
-		//Ajout à la liste chainée de trams
-		ldt.ajouter(num,direction,marche);
-
-		//Iteration 
-		tram = tram->NextSiblingElement(); 
-	}
-	*/
-
 }
 
 void affichageSimulation()

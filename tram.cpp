@@ -104,7 +104,7 @@ void Tram::tramAvance(double milisecondes)
 	{
 		if (d_direction==true)
 		{
-			if (L.GetListe()[L.TailleTableau()]==S2)
+			if (L.getListe()[L.TailleTableau()]==S2)
 			{
 				changeDirection();
 				Station Stmp=S2;
@@ -120,7 +120,7 @@ void Tram::tramAvance(double milisecondes)
 		}
 		else
 		{
-			if (L.GetListe()[0]==S2)
+			if (L.getListe()[0]==S2)
 			{
 				changeDirection();
 				Station Stmp=S2;
