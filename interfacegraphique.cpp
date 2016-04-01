@@ -48,17 +48,15 @@ void afficherTram(const ListeTrams &ldt)
 		posX = station1.getPosX()+dtram*vecteurX;
 		posY = station1.getPosY()+dtram*vecteurY;
 		
-		rectangle(posX-10,posY-10,posX+10,posY+10);
+		rectangle(posX-2,posY-2,posX+2,posY+2);
 		//Retirer le floodfill si bug, je peux pas le test moi.
 		floodfill(posX,posY,WHITE);
 		
 		int numTram = tmp.tram()->getNum();
-		// J'ai fais plein de string car y'a eu des bugs randoms et faudra faire des test
-		string posTram1 = "(" + posX;
-		string posTram2 = "," + posY;
-		string posTram = posTram1+posTram2+ ")";
-		string tramNumPos = numTram+" " + posTram;
-		outtextxy(posX+15,posY+15,tramNumPos.c_str());
+	
+		char* tramNumPos;
+		sprintf(tramNumPos, "%d", numTram);
+		outtextxy(posX+15,posY+15,tramNumPos);
 		
 		tmp.Next();
 	}
