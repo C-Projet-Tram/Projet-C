@@ -16,17 +16,19 @@ Station Ligne::getStation(int i) const
 Station Ligne::stationSuivante(const Station &station) const
 {
 	unsigned int i;
-	for(i=0;i < d_liste.size() && d_liste[i] != station;i++)
+	for(i=0; i < d_liste.size(); i++)
 	if (d_liste[i] == station)
 		return d_liste[i+1];
+	return d_liste[i-1];
 }
  
 Station Ligne::stationPrecedente(const Station &station) const
 {
 	unsigned int i;
-	for(i=0;i < d_liste.size() && d_liste[i] != station;i++)
+	for(i=0; i < d_liste.size(); i++)
 	if (d_liste[i] == station)
 		return d_liste[i-1];
+	return d_liste[i+1];
 }
 
 bool Ligne::operator==(const Ligne &ligne) const
