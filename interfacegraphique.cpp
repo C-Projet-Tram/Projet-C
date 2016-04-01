@@ -62,7 +62,7 @@ void afficherTram(const ListeTrams &ldt)
 	}
 }
 
-void afficher(const vector<Ligne> &ldl, const ListeTrams &ldt)
+void afficher(const vector<Ligne> &ldl, const ListeTrams &ldt, double dureeRestante)
 {
 	cleardevice();
 	setbkcolor(BLACK);

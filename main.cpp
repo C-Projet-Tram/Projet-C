@@ -163,6 +163,7 @@ void configSimulation(ListeTrams &ldt , const vector < Ligne > &ldl)
 	opengraphsize(1000,600);
 	ListeTrams tmp2 = ldt;
 	ListeTrams tmp;
+	double dureeRestante = duree - ((clock() - start_t) / (double) CLOCKS_PER_SEC);
 	while( (clock() - start_t) / (double) CLOCKS_PER_SEC < duree )
 	{
 		clockActuel = clock();
@@ -176,7 +177,8 @@ void configSimulation(ListeTrams &ldt , const vector < Ligne > &ldl)
 			tmp.tram()->tramAvance(deltaClock / (double) CLOCKS_PER_SEC);
 			tmp.Next();
 		}
-		afficher(ldl,ldt);
+		afficher(ldl, ldt, dureeRestante);
+		dureeRestante = duree - ((clock() - start_t) / (double) CLOCKS_PER_SEC) - duree;
 	}
 }
 
