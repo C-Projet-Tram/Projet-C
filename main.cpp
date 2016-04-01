@@ -159,14 +159,15 @@ void configSimulation(ListeTrams &ldt , const vector < Ligne > &ldl)
 	double duree;
 	cout << "Indiquez une durée (en seconde):" << endl;
 	cin >> duree;
-	int clockActuel = clock() , clockIteration , deltaClock;
+	clock_t start_t = clock(),clockActuel = start_t , clockIteration =start_t;
 	opengraphsize(1000,600);
 	ListeTrams tmp = ldt;
 	ListeTrams tmp2 = ldt;
-	while( (clockActuel/1000) < duree )
+	while( (clock() - start_t) / (double) CLOCKS_PER_SEC < duree )
 	{
+		clockActuel = clock();
+		clock_t deltaClock = clockActuel-clockIteration;
 		clockIteration = clockActuel;
-		deltaClock = clockActuel-clockIteration;
 		while(tmp.tram())
 		{
 			//changer la distance des trams et vérifier s'il y a quelqu'un devant
@@ -175,7 +176,7 @@ void configSimulation(ListeTrams &ldt , const vector < Ligne > &ldl)
 			tmp.Next();
 		}
 		afficher(ldl,ldt);
-		clockActuel = clock();
+		//clockActuel = clock();
 		cout << clockActuel << endl;
 		cout << clockIteration << endl;
 		cout << deltaClock << endl;
