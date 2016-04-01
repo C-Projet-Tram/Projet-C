@@ -1,8 +1,8 @@
 #include "graphics.h"
-#include <vector>
 #include "station.h"
 #include "Ligne.h"
 #include "ListeTrams.h"
+
 
 /*Fonctions à utiliser pour l'interface graphique
 //void line(int x0, int y0, int x1, int y1)
@@ -20,6 +20,9 @@ void afficherLigneEtStation(const vector<Ligne> &ldl)
 			station1 = ldl[i].getStation(j);
 			station2 = ldl[i].getStation(j+1);
 			circle(station1.getPosX(),station1.getPosY(),10);
+			//Retirer le floodfill si bug, je peux pas le test moi.
+			floodfill(station1.getPosX(),station1.getPosY(),i+1);
+			outtextxy(station1.getPosX()+6,station1.getPosY()+6,station1.getNom().c_str());
 			line(station1.getPosX(),station1.getPosY(),station2.getPosX(),station2.getPosY());
 		}
 		station1 = ldl[i].getStation(ldl[i].tailleTableau()-1);
@@ -46,6 +49,16 @@ void afficherTram(const ListeTrams &ldt)
 		posY = station1.getPosY()+dtram*vecteurY;
 		
 		rectangle(posX-10,posY-10,posX+10,posY+10);
+		//Retirer le floodfill si bug, je peux pas le test moi.
+		floodfill(posX,posY,WHITE);
+		
+		int numTram = tmp.tram()->getNum();
+		// J'ai fais plein de string car y'a eu des bugs randoms et faudra faire des test
+		string posTram1 = "(" + posX;
+		string posTram2 = "," + posY;
+		string posTram = posTram1+posTram2+ ")";
+		string tramNumPos = numTram+" " + posTram;
+		outtextxy(posX+15,posY+15,tramNumPos.c_str());
 		
 		tmp.Next();
 	}
