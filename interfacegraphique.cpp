@@ -64,8 +64,11 @@ void afficherTram(const ListeTrams &ldt)
 
 void afficher(const vector<Ligne> &ldl, const ListeTrams &ldt, double dureeRestante)
 {
+	char* duree;
 	cleardevice();
 	setbkcolor(BLACK);
 	afficherLigneEtStation(ldl);
 	afficherTram(ldt);
+	sprintf(duree, "%d", dureeRestante);
+	outtextxy(10,10,duree);
 }
