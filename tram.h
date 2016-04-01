@@ -27,6 +27,7 @@ class Tram
 		bool getDirection() const;
 		bool getMarche() const;
 		Ligne getLigne() const;
+		double getTempsArret() const;
 		Tram *getSuivant() const;
 		Tram *getSuivant();
 		/*
@@ -43,6 +44,7 @@ class Tram
 		bool d_marche;
 		Ligne ligne;
 		Station station1 , station2;
+		double tempsArret;
 		Tram *suiv;
 };
 

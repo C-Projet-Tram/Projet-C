@@ -2,23 +2,24 @@
 
 Tram::Tram(const Tram *tram)
 {
-	d_num=tram->d_num;
-	d_vitesse=tram->d_vitesse;
-	distanceMinimum=tram->distanceMinimum;
-	distance=tram->distance;
-	station1=tram->station1;
-	station2=tram->station2;
-	d_direction=tram->d_direction;
-	d_marche=tram->d_marche;
-	ligne=tram->ligne;
-	suiv=tram->suiv;
+	d_num = tram->d_num;
+	d_vitesse = tram->d_vitesse;
+	distanceMinimum = tram->distanceMinimum;
+	distance = tram->distance;
+	station1 = tram->station1;
+	station2 = tram->station2;
+	d_direction = tram->d_direction;
+	d_marche = tram->d_marche;
+	ligne = tram->ligne;
+	tempsArret = tram->tempsArret;
+	suiv = tram->suiv;
 }
 
-Tram::Tram():d_num(0),d_vitesse(30),distanceMinimum(75),distance(0),d_direction(1),d_marche(0),suiv(0)
+Tram::Tram():d_num(0),d_vitesse(30),distanceMinimum(75),distance(0),d_direction(1),d_marche(0),tempsArret(0),suiv(0)
 {}
 
 Tram::Tram(int num,int vitesse,int dMini,bool direction,bool marche,Ligne ligne,Station station1):
-	d_num(num),d_vitesse(vitesse),distanceMinimum(dMini),distance(0),d_direction(direction),d_marche(marche),ligne(ligne),station1(station1),suiv(0)
+	d_num(num),d_vitesse(vitesse),distanceMinimum(dMini),distance(0),d_direction(direction),d_marche(marche),ligne(ligne),station1(station1),tempsArret(0),suiv(0)
 {
 	initialiseStation2();
 }
@@ -68,6 +69,11 @@ Ligne Tram::getLigne() const
 	return ligne;
 }
 
+double Tram::getTempsArret() const
+{
+	return tempsArret;
+}
+
 Tram *Tram::getSuivant() const
 {
 	return suiv;
@@ -106,45 +112,68 @@ void Tram::verifDistanceMinimale(Tram *tram)
 
 void Tram::tramAvance(double milisecondes)
 {
-	double pixels = milisecondes*d_vitesse/1000;
-	double pixelsTot = station1.distance(station2);
-	double distanceAjoutee = pixels/pixelsTot;
-	distance += distanceAjoutee;
-	if (distance > 1)
+	if (d_marche)
 	{
-		if (d_direction)
+		double pixels = milisecondes*d_vitesse/1000;
+		double pixelsTot = station1.distance(station2);
+		double distanceAjoutee = pixels/pixelsTot;
+		distance += distanceAjoutee;
+		if (distance > 1)
 		{
-			if (ligne.getListe()[ligne.tailleTableau()-1] == station2)
+			if (d_direction)
 			{
-				changeDirection();
-				Station Stmp = station2;
-				station2 = station1;
-				station1 = Stmp;
-				distance = 0;
+				if (ligne.getListe()[ligne.tailleTableau()-1] == station2)
+				{
+					changeDirection();
+					enMarche();
+					tempsArret = station2.getTempsArret();
+					Station Stmp = station2;
+					station2 = station1;
+					station1 = Stmp;
+					distance = 0;
+				}
+				else
+				{
+					tempsArret = station2.getTempsArret();
+					enMarche();
+					station1 = station2;
+					station2 = ligne.stationSuivante(station2);
+					distance = 0;
+				}
 			}
 			else
 			{
-				station1 = station2;
-				station2 = ligne.stationSuivante(station2);
-				distance = 0;
+				if (ligne.getListe()[0] == station2)
+				{
+					tempsArret = station2.getTempsArret();
+					enMarche();
+					changeDirection();
+					Station Stmp = station2;
+					station2 = station1;
+					station1 = Stmp;
+					distance = 0;
+				}
+				else
+				{
+					tempsArret = station2.getTempsArret();
+					enMarche();
+					station1 = station2;
+					station2 = ligne.stationPrecedente(station1);
+					distance = 0;
+				}
 			}
+		}
+	}
+	else
+	{
+		if (tempsArret > 0)
+		{
+			tempsArret -= milisecondes;
 		}
 		else
 		{
-			if (ligne.getListe()[0] == station2)
-			{
-				changeDirection();
-				Station Stmp = station2;
-				station2 = station1;
-				station1 = Stmp;
-				distance = 0;
-			}
-			else
-			{
-				station1 = station2;
-				station2 = ligne.stationPrecedente(station1);
-				distance = 0;
-			}
+			tempsArret = 0;
+			enMarche();
 		}
 	}
 }
