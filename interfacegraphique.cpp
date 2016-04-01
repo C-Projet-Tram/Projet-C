@@ -44,11 +44,11 @@ void afficherTram(const ListeTrams &ldt)
 		
 		vecteurX = station2.getPosX()-station1.getPosX();
 		vecteurY = station2.getPosY()-station1.getPosY();
-		
+
 		posX = station1.getPosX()+dtram*vecteurX;
 		posY = station1.getPosY()+dtram*vecteurY;
 		
-		rectangle(posX-2,posY-2,posX+2,posY+2);
+		rectangle(posX-5,posY-5,posX+5,posY+5);
 		//Retirer le floodfill si bug, je peux pas le test moi.
 		floodfill(posX,posY,WHITE);
 		

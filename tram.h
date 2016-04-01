@@ -13,7 +13,7 @@ class Tram
 		void enMarche();
 		void verifDistanceMinimale(Tram *T2);
 		void verifToutTram(Tram *T2);
-		void tramAvance(int milisecondes);
+		void tramAvance(double milisecondes);
 		void changeDirection();
 		void initialiseStation2();
 

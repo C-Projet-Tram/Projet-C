@@ -104,7 +104,7 @@ void Tram::verifDistanceMinimale(Tram *tram)
 	}
 }
 
-void Tram::tramAvance(int milisecondes)
+void Tram::tramAvance(double milisecondes)
 {
 	double pixels = milisecondes*d_vitesse/1000;
 	double pixelsTot = station1.distance(station2);
@@ -141,8 +141,8 @@ void Tram::tramAvance(int milisecondes)
 			}
 			else
 			{
-				station2 = station1;
-				station1 = ligne.stationPrecedente(station1);
+				station1 = station2;
+				station2 = ligne.stationPrecedente(station1);
 				distance = 0;
 			}
 		}
