@@ -71,4 +71,6 @@ void afficher(const vector<Ligne> &ldl, const ListeTrams &ldt, double dureeResta
 	setbkcolor(BLACK);
 	afficherLigneEtStation(ldl);
 	afficherTram(ldt);
+	sprintf(duree, "%lf", dureeRestante);
+	outtextxy(30,30,duree);
 }
