@@ -10,10 +10,11 @@
 //void circle(int x, int y, int radius)
 //void rectangle (int left, int top, int right, int bottom)
 */
-
+/*
 struct AnciennePosTram {
 	double ancienX = 0, ancienY = 0;
 };
+*/
 
 
 void afficherLigneEtStation(const vector<Ligne> &ldl) 
@@ -41,32 +42,35 @@ void afficherTram(const ListeTrams &ldt)
 	
 	ListeTrams tmp = ldt;
 	double posX, posY;
-	AnciennePosTram posTram[tmp.taille()];
-	int k = 0;
+	int numTram = 0;
+	//AnciennePosTram posTram[tmp.taille()];
+	//int k = 0;
+	
+	setcolor(WHITE);
 	while (tmp.tram()) 
 	{
 		posX = tmp.tram()->tramPosX();
 		posY = tmp.tram()->tramPosY();
 		
-		setcolor(BLACK);
-		rectangle(posTram[k].ancienX-5,posTram[k].ancienY-5,posTram[k].ancienX+5,posTram[k].ancienY+5);
-		setcolor(WHITE);
+		//setcolor(BLACK);
+		//rectangle(posTram[k].ancienX-5,posTram[k].ancienY-5,posTram[k].ancienX+5,posTram[k].ancienY+5);
+		//
 		rectangle(posX-5,posY-5,posX+5,posY+5);
 		
-		posTram[k].ancienX = posX;
-		posTram[k].ancienY = posY;
+		//posTram[k].ancienX = posX;
+		//posTram[k].ancienY = posY;
 		
 		//Retirer le floodfill si bug, je peux pas le test moi.
 		//floodfill(posX,posY,WHITE);
 		
-		int numTram = tmp.tram()->getNum();
+		numTram = tmp.tram()->getNum();
 	
 		char tramNumPos[10];
 		sprintf(tramNumPos, "%d", numTram);
 		outtextxy(posX+15,posY+15,tramNumPos);
 		
 		tmp.Next();
-		k++;
+		//k++;
 	}
 }
 
