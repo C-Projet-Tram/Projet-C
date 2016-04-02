@@ -123,7 +123,7 @@ void Tram::tramAvance(double milisecondes)
 		double pixelsTot = station1.distance(station2);
 		double distanceAjoutee = pixels/pixelsTot;
 		distance += distanceAjoutee;
-		if (distance > 1)
+		if (distance >= 1)
 		{
 			if (d_direction)
 			{
