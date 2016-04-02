@@ -34,6 +34,7 @@ void afficherLigneEtStation(const vector<Ligne> &ldl)
 		station1 = ldl[i].getStation(ldl[i].tailleTableau()-1);
 		circle(station1.getPosX(),station1.getPosY(),7);
 		//floodfill(station1.getPosX()+4,station1.getPosY()+4,i+1);
+		outtextxy(station1.getPosX()+4,station1.getPosY()+4, station1.getNom().c_str());
 	}
 }
 
