@@ -159,7 +159,7 @@ void affichageSimulation()
 void configSimulation(ListeTrams &ldt , const vector < Ligne > &ldl)
 {
 	double duree;
-	cout << "Indiquez une durée (en seconde):" << endl;
+	cout << "Indiquez une duree (en seconde):" << endl;
 	cin >> duree;
 	clock_t start_t = clock(), clockActuel, clockIteration =start_t;
 	opengraphsize(1000,600);
@@ -188,15 +188,19 @@ int main()
 {
 	int choice=0;
 	
+	loadData();
+	cout << ldt.taille();
 	
-	while(choice != 3)
+	system("pause");
+	system("cls");
+	
+	while(choice != 2)
 	{
 		cout << "----------------------------" << endl;
 		cout << "\t Menu" << endl;
 		cout << " Faites votre choix : " << endl;
-		cout << "\t1 - Charger les donnees" << endl;
-		cout << "\t2 - Lancer la simulation" << endl;
-		cout << "\t3 - Quitter" << endl;
+		cout << "\t1 - Lancer la simulation" << endl;
+		cout << "\t2 - Quitter" << endl;
 		cout << "----------------------------" << endl;
 		
 		cout << "Choice : "; cin >> choice;
@@ -205,14 +209,6 @@ int main()
 		{
 		
 			case 1:
-				loadData();
-				cout << ldt.taille();
-				
-				system("pause");
-				system("cls");
-			break;
-			
-			case 2:
 				configSimulation(ldt,ldl);
 				getch();
 				closegraph();
@@ -221,7 +217,7 @@ int main()
 				system("cls");
 			break;
 			
-			case 3:
+			case 2:
 				{
 				}
 		}
