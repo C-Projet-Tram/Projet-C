@@ -129,9 +129,9 @@ void Tram::tramAvance(double milisecondes)
 			{
 				if (ligne.getListe()[ligne.tailleTableau()-1] == station2)
 				{
-					changeDirection();
-					enMarche();
 					tempsArret = station2.getTempsArret();
+					enMarche();
+					changeDirection();
 					Station Stmp = station2;
 					station2 = station1;
 					station1 = Stmp;

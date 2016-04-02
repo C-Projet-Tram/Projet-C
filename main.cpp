@@ -7,6 +7,7 @@
 #include "tinyxml.h"
 #include "graphics.h"
 #include "interfacegraphique.h"
+#include <windows.h>
 
 using namespace std;
 
@@ -178,6 +179,7 @@ void configSimulation(ListeTrams &ldt , const vector < Ligne > &ldl)
 			tmp.Next();
 		}
 		afficher(ldl, ldt, dureeRestante);
+		Sleep(1000);
 		dureeRestante = duree - ((clock() - start_t) / (double) CLOCKS_PER_SEC);
 	}
 }
@@ -187,13 +189,14 @@ int main()
 	int choice=0;
 	
 	
-	while(choice != 2)
+	while(choice != 3)
 	{
 		cout << "----------------------------" << endl;
 		cout << "\t Menu" << endl;
 		cout << " Faites votre choix : " << endl;
-		cout << "\t1 - Lancer la simulation" << endl;
-		cout << "\t2 - Quitter" << endl;
+		cout << "\t1 - Charger les donnees" << endl;
+		cout << "\t2 - Lancer la simulation" << endl;
+		cout << "\t3 - Quitter" << endl;
 		cout << "----------------------------" << endl;
 		
 		cout << "Choice : "; cin >> choice;
@@ -204,15 +207,21 @@ int main()
 			case 1:
 				loadData();
 				cout << ldt.taille();
-				configSimulation(ldt,ldl);
-				getch();
-				closegraph();
-								
+				
 				system("pause");
 				system("cls");
 			break;
 			
 			case 2:
+				configSimulation(ldt,ldl);
+				getch();
+				closegraph();
+				
+				system("pause");
+				system("cls");
+			break;
+			
+			case 3:
 				{
 				}
 		}
