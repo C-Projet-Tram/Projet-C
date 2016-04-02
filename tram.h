@@ -16,6 +16,8 @@ class Tram
 		void tramAvance(double milisecondes);
 		void changeDirection();
 		void initialiseStation2();
+		double tramPosX() const;
+		double tramPosY() const;
 
 		
 		int getNum() const;

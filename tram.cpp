@@ -100,13 +100,18 @@ void Tram::verifDistanceMinimale(Tram *tram)
 {
 	if (ligne == tram->ligne)
 	{
-		if (abs(distance-tram->distance) < distanceMinimum)
+		if (d_direction == tram->d_direction)
 		{
-			if (d_marche == 1)
+			Station tmpStation1(tramPosX(), tramPosY());
+			Station tmpStation2(tram->tramPosX(), tram->tramPosY());
+			if (tmpStation1.distance(tmpStation2) < distanceMinimum)
+			{
+				if (d_marche == 1)
+					enMarche();
+			}
+			else if (d_marche == 0)
 				enMarche();
 		}
-		else if (d_marche == 0)
-			enMarche();
 	}
 }
 
@@ -185,6 +190,19 @@ void Tram::initialiseStation2()
 	else
 		station2 = ligne.stationPrecedente(station1);
 }
+
+double Tram::tramPosX() const
+{
+	double vecteurStationX = station2.getPosX()-station1.getPosX();
+	return station1.getPosX() + distance*vecteurStationX;	
+}
+
+double Tram::tramPosY() const
+{
+	double vecteurStationY = station2.getPosY()-station1.getPosY();
+	return station1.getPosY() + distance*vecteurStationY;	
+}
+
 
 void Tram::changeDirection()
 {

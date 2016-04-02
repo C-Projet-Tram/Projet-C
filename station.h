@@ -7,7 +7,8 @@ class Station
 {
 	public:
 		Station();
-		Station(string nom,int X,int Y,int tArret);
+		Station(string nom,double X,double Y,int tArret);
+		Station(double X, double Y);
 		Station(const Station &station);
 		double distance(const Station &station) const;
 		
@@ -20,7 +21,7 @@ class Station
 		bool operator==(const Station &S) const;
 	private:
 		string d_nom; 
-		int posX,posY;
+		double posX,posY;
 		int tempsArret;
 };
 

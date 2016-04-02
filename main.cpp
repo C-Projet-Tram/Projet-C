@@ -67,14 +67,15 @@ void loadData()
 				{
 			
 					//Assignation des donnees XML a des variables
-					int posX,posY,tempsArret;
+					int tempsArret;
+					double posX,posY;
 					string nom;
 					
 					nom = station->Attribute("nom");
 					cout << "\tStation " << nom << ",";
-					station->QueryIntAttribute("posX", &posX);
+					station->QueryDoubleAttribute("posX", &posX);
 					cout << "se trouvant en (" << posX << ",";
-					station->QueryIntAttribute("posY", &posY);
+					station->QueryDoubleAttribute("posY", &posY);
 					cout <<  posY << ") : "<< endl;
 					station->QueryIntAttribute("tempsArret", &tempsArret);
 					cout << "\t\tTemps d'arret : " << tempsArret << endl;
@@ -161,7 +162,6 @@ void configSimulation(ListeTrams &ldt , const vector < Ligne > &ldl)
 	cin >> duree;
 	clock_t start_t = clock(), clockActuel, clockIteration =start_t;
 	opengraphsize(1000,600);
-	ListeTrams tmp2 = ldt;
 	ListeTrams tmp;
 	double dureeRestante = duree - ((clock() - start_t) / (double) CLOCKS_PER_SEC);
 	while( (clock() - start_t) / (double) CLOCKS_PER_SEC < duree )
@@ -173,12 +173,12 @@ void configSimulation(ListeTrams &ldt , const vector < Ligne > &ldl)
 		while(tmp.tram())
 		{
 			//changer la distance des trams et vérifier s'il y a quelqu'un devant
-			tmp.tram()->verifToutTram(tmp2.tram());
+			tmp.tram()->verifToutTram(tmp.tram());
 			tmp.tram()->tramAvance(deltaClock / (double) CLOCKS_PER_SEC);
 			tmp.Next();
 		}
 		afficher(ldl, ldt, dureeRestante);
-		dureeRestante = duree - ((clock() - start_t) / (double) CLOCKS_PER_SEC) - duree;
+		dureeRestante = duree - ((clock() - start_t) / (double) CLOCKS_PER_SEC);
 	}
 }
 

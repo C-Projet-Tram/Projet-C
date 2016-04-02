@@ -36,19 +36,11 @@ void afficherTram(const ListeTrams &ldt)
 {
 	setcolor(WHITE);
 	ListeTrams tmp = ldt;
-	Station station1, station2;
-	int posX, posY;
-	double dtram , vecteurX , vecteurY;
-	while (tmp.tram()) {
-		station1 = tmp.tram()->getStation1();
-		station2 = tmp.tram()->getStation2();
-		dtram = tmp.tram()->getDistance();
-		
-		vecteurX = station2.getPosX()-station1.getPosX();
-		vecteurY = station2.getPosY()-station1.getPosY();
-
-		posX = station1.getPosX()+dtram*vecteurX;
-		posY = station1.getPosY()+dtram*vecteurY;
+	double posX, posY;
+	while (tmp.tram()) 
+	{
+		posX = tmp.tram()->tramPosX();
+		posY = tmp.tram()->tramPosY();
 		
 		rectangle(posX-5,posY-5,posX+5,posY+5);
 		//Retirer le floodfill si bug, je peux pas le test moi.

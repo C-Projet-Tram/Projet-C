@@ -4,20 +4,23 @@
 Station::Station():d_nom(""),posX(0),posY(0),tempsArret(0)
 {}
 
-Station::Station(string nom,int X,int Y,int tArret):d_nom(nom),posX(X),posY(Y),tempsArret(tArret)
+Station::Station(string nom,double X,double Y,int tArret):d_nom(nom),posX(X),posY(Y),tempsArret(tArret)
+{}
+
+Station::Station(double X, double Y):d_nom("tmp"),posX(X),posY(Y),tempsArret(0)
 {}
 
 Station::Station(const Station &station)
 {
-	d_nom = station.getNom();
-	posX = station.getPosX();
-	posY = station.getPosY();
-	tempsArret = station.getTempsArret();
+	d_nom = station.d_nom;
+	posX = station.posX;
+	posY = station.posY;
+	tempsArret = station.tempsArret;
 }
 
 double Station::distance(const Station &station) const
 {
-  int X = station.posX-posX, Y = station.posY-posY; 
+  double X = station.posX-posX, Y = station.posY-posY; 
   return sqrt((X*X)+(Y*Y));
 }
 
