@@ -124,7 +124,7 @@ void loadData()
 				cout << "\tStation : " << station.getNom() << endl;
 				
 				bool direction = direct;
-				bool marche = marche;
+				bool marche = mar;
 				
 				//Test
 				

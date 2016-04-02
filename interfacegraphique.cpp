@@ -22,13 +22,15 @@ void afficherLigneEtStation(const vector<Ligne> &ldl)
 			station1 = ldl[i].getStation(j);
 			station2 = ldl[i].getStation(j+1);
 			circle(station1.getPosX(),station1.getPosY(),7);
+			floodfill(station1.getPosX(),station1.getPosY(),i+1);
 			//Retirer le floodfill si bug, je peux pas le test moi.
 			//floodfill(station1.getPosX(),station1.getPosY(),i+1);
-			outtextxy(station1.getPosX()+6,station1.getPosY()+6,station1.getNom().c_str());
+			outtextxy(station1.getPosX()+4,station1.getPosY()+4, station1.getNom().c_str());
 			line(station1.getPosX(),station1.getPosY(),station2.getPosX(),station2.getPosY());
 		}
 		station1 = ldl[i].getStation(ldl[i].tailleTableau()-1);
-		circle(station1.getPosX(),station1.getPosY(),10);
+		circle(station1.getPosX(),station1.getPosY(),7);
+		floodfill(station1.getPosX()+4,station1.getPosY()+4,i+1);
 	}
 }
 
@@ -48,7 +50,7 @@ void afficherTram(const ListeTrams &ldt)
 		
 		int numTram = tmp.tram()->getNum();
 	
-		char* tramNumPos;
+		char tramNumPos[10];
 		sprintf(tramNumPos, "%d", numTram);
 		outtextxy(posX+15,posY+15,tramNumPos);
 		
@@ -58,7 +60,7 @@ void afficherTram(const ListeTrams &ldt)
 
 void afficher(const vector<Ligne> &ldl, const ListeTrams &ldt, double dureeRestante)
 {
-	char* duree;
+	char duree[10];
 	cleardevice();
 	setbkcolor(BLACK);
 	afficherLigneEtStation(ldl);
