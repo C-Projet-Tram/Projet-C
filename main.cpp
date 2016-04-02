@@ -43,7 +43,6 @@ void loadData()
 	{
 		//Affichage du nom de la liste a charger
     	string elemName = elem->Value();
-    	cout << "Element a charger : " << elemName << endl;
     	
 		if(elemName=="listeLignes")
 		{
@@ -56,8 +55,7 @@ void loadData()
 		
 				//Assignation des donnees XML a des variables
 				Ligne l;
-				cout << "Ligne : " << endl;
-				
+
 								
 	    		TiXmlElement *station = ligne->FirstChildElement()->FirstChildElement();
 				if(!station){
@@ -73,13 +71,9 @@ void loadData()
 					string nom;
 					
 					nom = station->Attribute("nom");
-					cout << "\tStation " << nom << ",";
 					station->QueryDoubleAttribute("posX", &posX);
-					cout << "se trouvant en (" << posX << ",";
 					station->QueryDoubleAttribute("posY", &posY);
-					cout <<  posY << ") : "<< endl;
 					station->QueryIntAttribute("tempsArret", &tempsArret);
-					cout << "\t\tTemps d'arret : " << tempsArret << endl;
 					
 					//Creation et ajout de la station
 					Station s(nom,posX,posY,tempsArret);
@@ -107,22 +101,22 @@ void loadData()
 				int num,vitesse,distanceMini,direct,mar,ligne,numStation;
 				
 				tram->QueryIntAttribute("num", &num);
-				cout << "Tram numero " << num << endl;
+
 				tram->QueryIntAttribute("vitesse", &vitesse);
-				cout << "\tVitesse : " << vitesse << endl;
+
 				tram->QueryIntAttribute("distanceMini", &distanceMini);
-				cout << "\tDistance minimum : " << distanceMini << endl;
+
 				tram->QueryIntAttribute("direction", &direct);
-				cout << "\tDirection : " << direct << endl;
+
 				tram->QueryIntAttribute("marche", &mar);
-				cout << "\tMarche : " << mar << endl;
+
 				tram->QueryIntAttribute("ligne", &ligne);
-				cout << "\tLigne : " << ligne << endl;
+
 				
 				tram->QueryIntAttribute("station", &numStation);
 				//Creation de la station par recopie
 				Station station(ldl[ligne].getStation(numStation));
-				cout << "\tStation : " << station.getNom() << endl;
+
 				
 				bool direction = direct;
 				bool marche = mar;
@@ -189,13 +183,12 @@ int main()
 	int choice=0;
 	
 	loadData();
-	cout << ldt.taille();
 	
-	system("pause");
-	system("cls");
+	
 	
 	while(choice != 2)
 	{
+		system("cls");
 		cout << "----------------------------" << endl;
 		cout << "\t Menu" << endl;
 		cout << " Faites votre choix : " << endl;
@@ -205,21 +198,15 @@ int main()
 		
 		cout << "Choice : "; cin >> choice;
 		
-		switch(choice)
+		if(choice==1)
 		{
-		
-			case 1:
+
 				configSimulation(ldt,ldl);
 				getch();
 				closegraph();
 				
 				system("pause");
 				system("cls");
-			break;
-			
-			case 2:
-				{
-				}
 		}
 	}
 	return 0;
