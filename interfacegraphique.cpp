@@ -80,10 +80,13 @@ void afficher(const vector<Ligne> &ldl, const ListeTrams &ldt, double dureeResta
 	char duree[10];
 	cleardevice();
 	setbkcolor(BLACK);
+	settextstyle(SANSSERIF_FONT,HORIZ_DIR,1);
 	afficherLigneEtStation(ldl);
 	afficherTram(ldt);
 	int dureeint = static_cast<int>(dureeRestante);
 	sprintf(duree, "%d", dureeint);
 	setcolor(WHITE);
-	outtextxy(30,30,duree);
+	settextstyle(SANSSERIF_FONT,HORIZ_DIR,2);
+	outtextxy(10,10,"Durée restante : ");
+	outtextxy(150,10,duree);
 }
