@@ -11,6 +11,9 @@
 //void rectangle (int left, int top, int right, int bottom)
 */
 
+struct AnciennePosTram {
+	double ancienX = 0, ancienY = 0;
+};
 
 
 void afficherLigneEtStation(const vector<Ligne> &ldl) 
@@ -22,7 +25,6 @@ void afficherLigneEtStation(const vector<Ligne> &ldl)
 			station1 = ldl[i].getStation(j);
 			station2 = ldl[i].getStation(j+1);
 			circle(station1.getPosX(),station1.getPosY(),7);
-			floodfill(station1.getPosX(),station1.getPosY(),i+1);
 			//Retirer le floodfill si bug, je peux pas le test moi.
 			//floodfill(station1.getPosX(),station1.getPosY(),i+1);
 			outtextxy(station1.getPosX()+4,station1.getPosY()+4, station1.getNom().c_str());
@@ -30,21 +32,30 @@ void afficherLigneEtStation(const vector<Ligne> &ldl)
 		}
 		station1 = ldl[i].getStation(ldl[i].tailleTableau()-1);
 		circle(station1.getPosX(),station1.getPosY(),7);
-		floodfill(station1.getPosX()+4,station1.getPosY()+4,i+1);
+		//floodfill(station1.getPosX()+4,station1.getPosY()+4,i+1);
 	}
 }
 
 void afficherTram(const ListeTrams &ldt)
 {
-	setcolor(WHITE);
+	
 	ListeTrams tmp = ldt;
 	double posX, posY;
+	AnciennePosTram posTram[tmp.taille()];
+	int k = 0;
 	while (tmp.tram()) 
 	{
 		posX = tmp.tram()->tramPosX();
 		posY = tmp.tram()->tramPosY();
 		
+		setcolor(BLACK);
+		rectangle(posTram[k].ancienX-5,posTram[k].ancienY-5,posTram[k].ancienX+5,posTram[k].ancienY+5);
+		setcolor(WHITE);
 		rectangle(posX-5,posY-5,posX+5,posY+5);
+		
+		posTram[k].ancienX = posX;
+		posTram[k].ancienY = posY;
+		
 		//Retirer le floodfill si bug, je peux pas le test moi.
 		//floodfill(posX,posY,WHITE);
 		
@@ -55,6 +66,7 @@ void afficherTram(const ListeTrams &ldt)
 		outtextxy(posX+15,posY+15,tramNumPos);
 		
 		tmp.Next();
+		k++;
 	}
 }
 
@@ -67,5 +79,6 @@ void afficher(const vector<Ligne> &ldl, const ListeTrams &ldt, double dureeResta
 	afficherTram(ldt);
 	int dureeint = static_cast<int>(dureeRestante);
 	sprintf(duree, "%d", dureeint);
+	setcolor(WHITE);
 	outtextxy(30,30,duree);
 }
