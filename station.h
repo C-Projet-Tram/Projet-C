@@ -6,16 +6,16 @@ using namespace std;
 class Station
 {
 	public:
-		Station();
-		Station(string nom,double X,double Y,int tArret);
-		Station(double X, double Y);
-		Station(const Station &station);
-		double distance(const Station &station) const;
+		Station();//Constructeur par défaut
+		Station(string nom,double X,double Y,int tArret);//Constructeur avec les variables
+		Station(double X, double Y);//Constructeur fait spécialement pour calculer une distance à partir d'un tram
+		Station(const Station &station);//Constructeur par recopie
+		double distance(const Station &station) const;//Calcul de la distance (euclidienne) entre deux stations.
 		
-		string getNom() const;
-		int getPosX() const;
-		int getPosY() const;
-		int getTempsArret() const;
+		string getNom() const;//Renvoie la variable d_nom d'une station
+		int getPosX() const;//Renvoie la variable posX d'une station
+		int getPosY() const;//Renvoie la variable posY d'une station
+		int getTempsArret() const;//Renvoie la variable tempsArret d'une station
 		
 		bool operator!=(const Station &S) const;
 		bool operator==(const Station &S) const;

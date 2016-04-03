@@ -87,7 +87,7 @@ Tram *Tram::getSuivant()
 
 void Tram::verifToutTram(Tram *tram)
 {
-	Tram *tmp=tram;
+	Tram *tmp = tram;
 	while(tmp)
 	{
 		if (this != tmp)
@@ -96,38 +96,49 @@ void Tram::verifToutTram(Tram *tram)
 	}
 }
 
+int Tram::numeroStation() const
+{
+	unsigned int i;
+	for(i=0; i < ligne.getListe().size() && ligne.getListe()[i] != station1; i++);
+	return i;
+}
+
+
 void Tram::verifDistanceMinimale(Tram *tram) 
 {
 	if (ligne == tram->ligne)
 	{
 		if (d_direction == tram->d_direction)
 		{
-			Station tmpStation1(tramPosX(), tramPosY());
-			Station tmpStation2(tram->tramPosX(), tram->tramPosY());
-			if (tmpStation1.distance(tmpStation2) < distanceMinimum)
+			if (((numeroStation() < tram->numeroStation()) && (d_direction == 1)) || ((numeroStation() > tram->numeroStation()) && (d_direction == 0)))
 			{
-				if (d_marche == 1)
+				Station tmpStation1(tramPosX(), tramPosY());
+				Station tmpStation2(tram->tramPosX(), tram->tramPosY());
+				if (tmpStation1.distance(tmpStation2) < distanceMinimum)
+				{
+					if (d_marche == 1)
+						enMarche();
+				}
+				else if (d_marche == 0)
 					enMarche();
 			}
-			else if (d_marche == 0)
-				enMarche();
 		}
 	}
 }
 
 void Tram::tramAvance(double milisecondes)
 {
-	if (d_marche)
+	if (d_marche)//Vérifie si le tram est en marche
 	{
 		double pixels = milisecondes*d_vitesse/1000;
 		double pixelsTot = station1.distance(station2);
 		double distanceAjoutee = pixels/pixelsTot;
 		distance += distanceAjoutee;
-		if (distance >= 1)
+		if (distance >= 1)//Si un tram atteint la station2
 		{
-			if (d_direction)
+			if (d_direction)//En fonction de la direction
 			{
-				if (ligne.getListe()[ligne.tailleTableau()-1] == station2)
+				if (ligne.getListe()[ligne.tailleTableau()-1] == station2)//S'il arrive à un terminus
 				{
 					tempsArret = station2.getTempsArret();
 					enMarche();
@@ -137,7 +148,7 @@ void Tram::tramAvance(double milisecondes)
 					station1 = Stmp;
 					distance = 0;
 				}
-				else
+				else//Les cas autres que le terminus
 				{
 					tempsArret = station2.getTempsArret();
 					enMarche();
@@ -148,7 +159,7 @@ void Tram::tramAvance(double milisecondes)
 			}
 			else
 			{
-				if (ligne.getListe()[0] == station2)
+				if (ligne.getListe()[0] == station2)//S'il arrive à un terminus
 				{
 					tempsArret = station2.getTempsArret();
 					enMarche();
@@ -158,7 +169,7 @@ void Tram::tramAvance(double milisecondes)
 					station1 = Stmp;
 					distance = 0;
 				}
-				else
+				else//Les cas autres que le terminus
 				{
 					tempsArret = station2.getTempsArret();
 					enMarche();
@@ -171,11 +182,11 @@ void Tram::tramAvance(double milisecondes)
 	}
 	else
 	{
-		if (tempsArret > 0)
+		if (tempsArret > 0)//Vérifie s'il est à l'arrêt
 		{
 			tempsArret -= milisecondes;
 		}
-		else
+		else//Initialise tempsArret à 0 au cas où tempsArret est négatif ( ce qui arrive presque tout le temps )
 		{
 			tempsArret = 0;
 			enMarche();

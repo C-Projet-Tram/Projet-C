@@ -14,11 +14,11 @@ class Ligne
 		Station stationSuivante(const Station &station) const;//Renvoie la station suivante d'une station
 		Station stationPrecedente(const Station &station) const;//Renvoie la station precendente d'une station
 		
-		int tailleTableau() const;
-		vector <Station> getListe() const;
-		Station getStation(int i) const;
+		int tailleTableau() const;//Renvoie la taille de d_liste
+		vector <Station> getListe() const;//Renvoie d_liste
+		Station getStation(int i) const;//Renvoie la station à la position i dans la liste d_liste
 		
-		bool operator==(const Ligne &ligne) const;
+		bool operator==(const Ligne &ligne) const;//opérateur de comparaison avec une autre ligne
 	private:
 		vector <Station> d_liste;
 };

@@ -10,7 +10,7 @@ ListeTrams::~ListeTrams()
 {
 	while(t) // t != 0
 	{
-		Tram *tmp=t->suiv;
+		Tram *tmp = t->suiv;
 		delete t;
 		t = tmp;
 	}
@@ -19,12 +19,12 @@ ListeTrams::~ListeTrams()
 //Méthode qui retourne la taille de la liste chainée
 int ListeTrams::taille() const
 {
-	int taille=0;
+	int taille = 0;
 	Tram *tmp = t;
 	while(tmp)
 	{
 		taille++;
-		tmp=tmp->suiv;
+		tmp = tmp->suiv;
 	}
 	return taille;
 }

@@ -148,6 +148,7 @@ void configSimulation(ListeTrams &ldt , const vector < Ligne > &ldl)
 	opengraphsize(1000,600);
 	ListeTrams tmp;
 	double dureeRestante = duree - ((clock() - start_t) / (double) CLOCKS_PER_SEC);
+	//itération sur la durée actuelle jusqu'à ce qu'elle atteigne ( ou dépasse ) la durée max
 	while( (clock() - start_t) / (double) CLOCKS_PER_SEC < duree )
 	{
 		clockActuel = clock();
@@ -156,11 +157,12 @@ void configSimulation(ListeTrams &ldt , const vector < Ligne > &ldl)
 		tmp = ldt;
 		while(tmp.tram())
 		{
-			//changer la distance des trams et vérifier s'il y a quelqu'un devant
+			//change la distance des trams et vérifie s'il y a un autre tram devant
 			tmp.tram()->verifToutTram(tmp.tram());
 			tmp.tram()->tramAvance(deltaClock / (double) CLOCKS_PER_SEC);
 			tmp.Next();
 		}
+		//méthode d'affichage des trams, stations et lignes
 		afficher(ldl, ldt, dureeRestante);
 		Sleep(1000);
 		dureeRestante = duree - ((clock() - start_t) / (double) CLOCKS_PER_SEC);
