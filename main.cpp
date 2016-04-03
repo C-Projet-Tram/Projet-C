@@ -17,14 +17,16 @@ vector<Ligne> ldl;
 
 void loadData()
 {
+	
 	string nomFichier;
-	cout << "Nom du fichier sans l'extention (par defaut SavedData)" << endl;
+	cout << "Nom du fichier sans l'extention (par defaut SavedData, tapez 1)" << endl;
 	cout << "Entrez le nom : ";cin >> nomFichier;
-	if(nomFichier=="")
+	if(nomFichier=="1")
 		nomFichier = "SavedData";
 	nomFichier += ".xml";
+	
 	//Ouverture du fichier
-	TiXmlDocument doc("SavedData.xml");
+	TiXmlDocument doc(nomFichier.c_str());
 	//Si erreur lors de l'ouverture du document
 	if(!doc.LoadFile())
 	{
