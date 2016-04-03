@@ -32,11 +32,7 @@ class Tram
 		double getTempsArret() const;
 		Tram *getSuivant() const;
 		Tram *getSuivant();
-		/*
-		Tram operator=(Tram T);
-		bool operator==(Tram T);
-		bool operator!=(Tram T);
-		*/
+
 	private:
 		int d_num;
 		int d_vitesse;

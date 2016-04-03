@@ -8,9 +8,9 @@ Focused=17
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
-CursorCol=13
-CursorRow=185
-TopLine=165
+CursorCol=21
+CursorRow=173
+TopLine=142
 =======
 CursorCol=1
 CursorRow=131
@@ -68,10 +68,10 @@ TopLine=14
 >>>>>>> origin/master
 LeftChar=1
 [Editor_1]
-CursorCol=29
-CursorRow=18
+CursorCol=1
+CursorRow=35
 <<<<<<< HEAD
-TopLine=8
+TopLine=1
 =======
 TopLine=18
 >>>>>>> origin/master
@@ -80,9 +80,9 @@ LeftChar=1
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
-CursorCol=9
-CursorRow=140
-TopLine=73
+CursorCol=1
+CursorRow=216
+TopLine=1
 =======
 <<<<<<< HEAD
 CursorCol=38
@@ -90,8 +90,8 @@ CursorRow=107
 TopLine=91
 LeftChar=1
 [Editor_3]
-CursorCol=11
-CursorRow=11
+CursorCol=1
+CursorRow=15
 =======
 CursorCol=11
 CursorRow=73
@@ -125,12 +125,12 @@ LeftChar=1
 [Editor_4]
 <<<<<<< HEAD
 <<<<<<< HEAD
-CursorCol=2
+CursorCol=1
 =======
 <<<<<<< HEAD
 CursorCol=11
-CursorRow=56
-TopLine=39
+CursorRow=71
+TopLine=1
 =======
 CursorCol=114
 >>>>>>> origin/master
@@ -155,8 +155,8 @@ LeftChar=1
 [Editor_7]
 <<<<<<< HEAD
 <<<<<<< HEAD
-CursorCol=51
-CursorRow=16
+CursorCol=91
+CursorRow=15
 =======
 CursorCol=21
 CursorRow=3
@@ -193,9 +193,9 @@ CursorRow=19
 TopLine=1
 LeftChar=1
 [Editor_17]
-CursorCol=15
-CursorRow=64
-TopLine=68
+CursorCol=14
+CursorRow=47
+TopLine=1
 LeftChar=1
 [Editor_18]
 CursorCol=30

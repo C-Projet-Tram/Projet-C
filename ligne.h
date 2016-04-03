@@ -10,10 +10,9 @@ class Ligne
 {
 	public:
 		Ligne();
-		//Ligne(vector<Station> liste):d_liste(liste){}
-		void ajouter(const Station &station);
-		Station stationSuivante(const Station &station) const; 
-		Station stationPrecedente(const Station &station) const;
+		void ajouter(const Station &station);//Ajouter une station à la ligne
+		Station stationSuivante(const Station &station) const;//Renvoie la station suivante d'une station
+		Station stationPrecedente(const Station &station) const;//Renvoie la station precendente d'une station
 		
 		int tailleTableau() const;
 		vector <Station> getListe() const;

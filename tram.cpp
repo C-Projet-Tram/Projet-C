@@ -214,38 +214,4 @@ void Tram::enMarche()
 	d_marche = !d_marche;
 }
 
-/*
-Tram Tram::operator=(Tram T)
-{
-	if (this==&T) return T;
-	d_num=T.d_num;
-	d_vitesse=T.d_vitesse;
-	distance=T.distance;
-	station1=T.station1;
-	station2=T.station2;
-	d_direction=T.d_direction;
-	d_marche=T.d_marche;
-	ligne=T.ligne;
-	suiv=T.suiv;
-	return *this;
-}
-bool Tram::operator==(Tram T)
-{
-	if (this==&T) return true;
-	if (d_direction==T.d_direction)
-		if (d_marche==T.d_marche)
-			return true;
-	return false;
-}
-
-bool Tram::operator!=(Tram T)
-{
-	if (this==&T) return false;
-	if (d_direction!=T.d_direction)
-		if (d_marche!=T.d_marche)
-		return true;
-	return false;
-}
-
-*/
 

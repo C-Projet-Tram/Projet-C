@@ -134,22 +134,7 @@ void loadData()
 	}
 		
 }
-/*
-void affichageSimulation()
-{
-	//A REMPLIR
-	int x=800,y=500,dir=0,lon=1,coul=RED;
-	
-	opengraphsize(1650,1000);
-	setcolor(coul);
 
-	//moveto(x,y);
-	//lineto(x,y);
-	getch();
-	closegraph();
-
-}
-*/
 void configSimulation(ListeTrams &ldt , const vector < Ligne > &ldl)
 {
 	double duree;
@@ -185,7 +170,7 @@ int main()
 	loadData();
 	
 	
-	
+	//Choix utilisateur
 	while(choice != 2)
 	{
 		system("cls");
