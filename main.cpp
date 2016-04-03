@@ -17,7 +17,12 @@ vector<Ligne> ldl;
 
 void loadData()
 {
-	
+	string nomFichier;
+	cout << "Nom du fichier sans l'extention (par defaut SavedData)" << endl;
+	cout << "Entrez le nom : ";cin >> nomFichier;
+	if(nomFichier=="")
+		nomFichier = "SavedData";
+	nomFichier += ".xml";
 	//Ouverture du fichier
 	TiXmlDocument doc("SavedData.xml");
 	//Si erreur lors de l'ouverture du document
@@ -28,29 +33,34 @@ void loadData()
 	}
 	
 
-	//On pointe sur la liste des trams
+	//On pointe sur le fichier
 	TiXmlHandle hdl(&doc);
 	
+	//Assignation au premier noeud
 	TiXmlElement* root = doc.FirstChildElement();
+	//S'il ne trouve pas le noeud 
 	if(root == NULL)
 	{
-	    cout << "Failed to load file: No root element."<< endl;
+	    cout << "Erreur du chargement du noeud principal !"<< endl;
 	
 	}
 	
-	//Parcours de toutes le listes
+	//Parcours de tous les noeuds
 	for(TiXmlElement* elem = root->FirstChildElement(); elem != NULL; elem = elem->NextSiblingElement())
 	{
-		//Affichage du nom de la liste a charger
+		//Affichage du nom du noeud a charger
     	string elemName = elem->Value();
     	
+    	//Si c'est le noeud listeLignes
 		if(elemName=="listeLignes")
 		{
 			TiXmlElement *ligne = elem->FirstChildElement();
+			//S'il ne trouve pas le noeud/ou erreur
 			if(!ligne){
-				cout << "Erreur, pas de ligne !" << endl;
+				cout << "Erreur du chargement des lignes !" << endl;
 			}
 			
+			//Parcours des lignes
 			while (ligne){
 		
 				//Assignation des donnees XML a des variables
@@ -58,10 +68,12 @@ void loadData()
 
 								
 	    		TiXmlElement *station = ligne->FirstChildElement()->FirstChildElement();
+	    		//S'il ne trouve pas le noeud/ou erreur
 				if(!station){
-					cout << "Erreur, pas de station !" << endl;
+					cout << "Erreur du chargement des stations !" << endl;
 				}
 				
+				//Parcours des stations
 				while (station)
 				{
 			
@@ -88,42 +100,32 @@ void loadData()
 				ligne = ligne->NextSiblingElement(); 
 			}
 		}
+		//Si c'est le noeud listeTrams
 		else if(elemName=="listeTrams")
 		{
 			TiXmlElement *tram = elem->FirstChildElement();
+			//S'il ne trouve pas le noeud/ou erreur
 			if(!tram){
-				cout << "Erreur, pas de tram !" << endl;
+				cout << "Erreur du chargement des trams !" << endl;
 			}
-			
+			//Parcours des trams
 			while (tram){
 		
 				//Assignation des donnees XML a des variables
-				int num,vitesse,distanceMini,direct,mar,ligne,numStation;
-				
+				int num,vitesse,distanceMini,direct,mar,ligne,numStation;	
 				tram->QueryIntAttribute("num", &num);
-
 				tram->QueryIntAttribute("vitesse", &vitesse);
-
 				tram->QueryIntAttribute("distanceMini", &distanceMini);
-
 				tram->QueryIntAttribute("direction", &direct);
-
 				tram->QueryIntAttribute("marche", &mar);
-
 				tram->QueryIntAttribute("ligne", &ligne);
-
-				
 				tram->QueryIntAttribute("station", &numStation);
 				//Creation de la station par recopie
 				Station station(ldl[ligne].getStation(numStation));
 
-				
 				bool direction = direct;
 				bool marche = mar;
-				
-				//Test
-				
-				
+
 				//Ajout a la liste chainee de trams
 				ldt.ajouter(num,vitesse,distanceMini,station,direction,marche,ldl[ligne]); 
 				
